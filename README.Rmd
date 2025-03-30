@@ -1,0 +1,286 @@
+---
+output: 
+  github_document: 
+    toc: TRUE
+---
+   
+<!-- README.md is generated from README.Rmd. Please edit that file --> 
+ 
+   
+```{r, include = FALSE}
+knitr::opts_chunk$set(      
+  collapse = TRUE,
+  warning = FALSE,  
+  comment = "#>",
+  message = F
+)        
+
+```
+
+
+```{r, results = 'asis', echo = F}
+library(magrittr)
+webpages <- fs::dir_ls(type = "file", 
+                       recurse = T, 
+                       glob = "*.csv|*.csv") %>% 
+  rev()
+
+file_name_wo_extension <- webpages %>% 
+  stringr::str_remove(".html|.pdf")
+ 
+webpages %>%    
+  paste0("a. [",
+         . ,
+         "]",
+         "(https://evamaerey.github.io/mytidytuesday/", ., 
+         ") **[source](https://github.com/evamaerey/mytidytuesday/blob/master/",
+         file_name_wo_extension,".csv",
+         ")**\n") %>% 
+  cat()     
+```
+
+The repo contains code to characterize the ggplot2 extension ecosystem.  A couple of projects motivate this:
+
+- CRAN task views grammar of graphics (or ggplot2 extension)
+- JSM 'Who are the ggplot2 extenders
+ 
+
+
+
+
+ 
+ 
+
+
+
+
+# 1. `tools::CRAN_package_db` that are `^gg|^GG|gg$|GG$` w/ ggplot2 depend or import
+
+Code/ideas: June, Joyce, Pepijn, Gina 
+
+  
+```{r}
+df <- tools::CRAN_package_db() |> 
+  dplyr::filter(
+    stringr::str_detect(Package, "^gg|^GG|gg$|GG$"),
+    stringr::str_detect(Depends, "ggplot2") | 
+    stringr::str_detect(Imports, "ggplot2")
+  ) 
+
+df |> tibble::tibble()
+
+df$Package
+
+readr::write_csv(df, "gg_w_ggplot2_depends_or_imports_cran.csv")
+```  
+
+
+# 2. `yaml::read_yaml` and `httr2` to parse extension gallery `gallery _config.yml` file
+
+Code/ideas: Pepijn, Joyce, Gina, (Probably others)
+
+
+
+```{r}
+df <-
+  "https://raw.githubusercontent.com/ggplot2-exts/gallery/refs/heads/gh-pages/_config.yml" |>
+  httr2::request() |>
+  httr2::req_perform() |>
+  httr2::resp_body_string() |>
+  (\(x) yaml::read_yaml(text = x))() |>
+  _$widgets |>
+  dplyr::bind_rows()
+
+df$name
+
+df
+
+readr::write_csv(df, "gg_extension_pkgs_gallery.csv")
+
+
+```
+
+
+# 3. `gh::gh` Keep in mind in terms: github contributors
+
+"Re finding GitHub users from packages, the repo owner is not always the only/main contributor, especially if it's an org"
+
+Code/ideas: Carl Suster @arcresu
+
+https://github.com/ggplot2-extenders/ggplot-extension-club/discussions/82#discussioncomment-12469510
+
+```{r}
+gh_contributors <- function(repo) {
+  resp <- gh::gh("GET /repos/{repo}/contributors", repo = repo)
+  total_contributions <- sum(sapply(resp, \(x) x$contributions))
+  resp <- Filter(\(x) x$type == "User", resp) # exclude bots
+  resp <- Filter(\(x) x$contributions > total_contributions/5, resp) # with at least 20% of contributions
+  sapply(resp, \(x) stringr::str_trim(x$login))
+}
+
+gh_contributors("cidm-ph/ggmapinset")
+gh_contributors("YuLab-SMU/ggfun")
+
+```
+
+
+# 4. `universe::global_search` with exported function pattern identification
+
+Teun  https://github.com/ggplot2-extenders/ggplot-extension-club/discussions/82#discussioncomment-12479880
+
+```{r, eval = F}
+# I'm aware there should be ~7k/8k packages with ggplot2 as dependency.
+packages <- universe::global_search(query = 'needs:ggplot2', limit = 10000L)
+out_file <- here::here("data", "function_exports.csv")
+
+# Ensure I have a 'data' folder with the file I'll need
+if (!fs::file_exists(out_file)) {
+	dir <- fs::path_dir(out_file)
+	if (!fs::dir_exists(dir)) {
+		fs::dir_create(dir)
+	}
+	fs::file_create(out_file)
+}
+
+# Read current data if it is cached
+current_data <- data.table::fread(out_file)
+
+data <- lapply(packages$results, function(result) {
+
+	name <- result$Package
+	universe <- result$`_user`
+
+	# We're going to skip this package if we've already seen it. Potentially,
+	# we'd be skipping packages with duplicate names, but that shouldn't occur
+	# too often.
+	if (name %in% current_data$name) {
+		return()
+	}
+
+	# The information we want, the exported functions, is not available in
+	# the results we already have. We need to a package specific query
+	# to get the `_exports` field
+	details <- universe::universe_one_package(universe, package = name)
+	exports <- unlist(details$`_exports`) %||% NA_character_
+
+	# Format as data.frame
+	df <- data.frame(
+		name = name,
+		universe = universe,
+		export = exports
+	)
+
+	# Write to file directly. Combined with the skip mechanism above, we're
+	# effectively caching every result
+	data.table::fwrite(df, out_file, append = TRUE)
+})
+
+
+```
+
+
+
+# 5. `pkgdiff` to look at patterns also?
+
+Pedro Aphalo
+
+https://github.com/ggplot2-extenders/ggplot-extension-club/discussions/82#discussioncomment-12582326
+
+```{r, eval = F}
+library(pkgdiff)
+library(lubridate)
+library(dplyr)
+
+
+
+# rm(list = ls(pattern = "*"))
+
+pkg_stability_row <- function(pkg, releases = NULL, months = NULL) {
+  temp <- pkg_stability(pkg = pkg, releases = releases, months = months)
+  temp.df <- as.data.frame(temp[c(1:7)])
+  temp.df$num.funs <- temp$StabilityData$TF[1L]
+  temp.df$Size <- temp$StabilityData$Size[1L]
+  temp.df
+}
+
+pkg_gg_functions <- function(pkg) {
+  gg.funs <- list(PackageName = pkg)
+  temp <- pkg_info(pkg = pkg, ver = "latest") # latest in CRAN! (ignores local)
+  fun.names <- unique(names(temp$Functions))
+  gg.funs$num.geoms <- sum(grepl("^geom_", fun.names))
+  gg.funs$num.stats <- sum(grepl("^stat_", fun.names))
+  gg.funs$num.scales <- sum(grepl("^scale_", fun.names))
+  gg.funs$num.positions <- sum(grepl("^position_", fun.names))
+  gg.funs$num.coords <- sum(grepl("^coord_", fun.names))
+  gg.funs$num.drawkeys <- sum(grepl("^draw_key_", fun.names))
+  gg.funs$num.guides <- sum(grepl("^guide_", fun.names))
+  gg.funs$num.labellers <- sum(grepl("^label_", fun.names))
+  gg.funs$num.themes <- sum(grepl("^theme_", fun.names))
+  gg.funs$num.theme.elements <- sum(grepl("^element_", fun.names))
+  gg.funs$num.ggplots <- sum(grepl("^ggplot", fun.names))
+  gg.funs$num.autoplots <- sum(grepl("^autoplot", fun.names))
+  gg.funs$num.autolayers <- sum(grepl("^autolayer", fun.names))
+  as.data.frame(gg.funs)
+}
+
+csv <- "https://raw.githubusercontent.com/ggplot2-extenders/ggplot2-extensions-cran-task-view/refs/heads/main/gg-pkgs.csv"
+
+# downloaded previously from GitHub
+gg_pkgs_list.df <- read.csv(csv)
+gg_packages <- gg_pkgs_list.df$Package
+length(gg_packages)
+
+# 'pkgdiff' gets package data from CRAN
+cran_pkgs <- available.packages(repos = c(CRAN = "https://cran.rstudio.com/"))
+cran_pkgs <- cran_pkgs[ , "Package"]
+
+gg_packages <- intersect(gg_packages, cran_pkgs)
+length(gg_packages)
+
+## run only if cached
+# chached_packages <- pkg_cache()
+# gg_packages <- intersect(na.omit(chached_packages$Package), gg_packages)
+# length(gg_packages)
+
+# even fewer packages for testing
+# gg_packages <- gg_packages[1:5]
+
+# all work lost if functions fail to return a value
+# stability.ls <- lapply(gg_packages, pkg_stability_row)
+# stability.df <- bind_rows(stability.ls)
+# 
+# functions.ls <- lapply(gg_packages, pkg_gg_functions)
+# functions.df <- bind_rows(functions.ls)
+
+# use a for loop instead so that results are not all lost when the function errors.
+# It can take quite a long time to run.
+
+if (!exists("stability.ls")) stability.ls <- list()
+if (!exists("functions.ls")) functions.ls <- list()
+pkgs_done <- intersect(names(stability.ls), names(functions.ls))
+pkgs_to_do <- setdiff(gg_packages, pkgs_done)
+length(pkgs_to_do)
+
+for (pkg in pkgs_to_do) {
+  temp1 <- pkg_stability_row(pkg = pkg)
+  if (nrow(temp1)) {
+    stability.ls[[pkg]] <- temp1
+  }
+  temp2 <- pkg_gg_functions(pkg = pkg)
+  if (nrow(temp2)) {
+    functions.ls[[pkg]] <- temp2
+  }
+}
+
+stability.df <- bind_rows(stability.ls)
+functions.df <- bind_rows(functions.ls)
+
+stability.df |> tibble::tibble()
+functions.df |> tibble::tibble()
+
+gg_pkgs_data.df <- full_join(stability.df, functions.df)
+
+write.csv(gg_pkgs_data.df, file = "gg-pkgs-data.csv")
+```
+
+

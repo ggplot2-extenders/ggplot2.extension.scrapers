@@ -1,0 +1,416 @@
+name,thumbnail,url,ghuser,ghrepo,tags,cran,ghauthor,short,description
+ggQQunif,images/ggQQunif.png,https://github.com/rcorty/ggQQunif,rcorty,ggQQunif,"visualization,quantiles,p-values,statistics,big data",TRUE,rcorty,"Make QQ plots for big data expected to be uniformly distributed, e.g. p-values.
+","For ""big data"" applications, we often have thousands or millions of p-values. The QQ-plot is a standard way to evaluate them, but can be horrifyingly slow when there are many p-values. This package computes where all the points would go in the naive implementation, then thins them strategically to greatly reduce overplotting, resulting in much faster plotting.
+"
+ggupset,images/ggupset.png,https://github.com/const-ae/ggupset,const-ae,ggupset,"visualization,upset,combination matrix",TRUE,const-ae,"Combination Matrix Axis for 'ggplot2' to Create 'UpSet' Plots
+","Replace the standard x-axis in 'ggplots' with a combination matrix to visualize complex set overlaps. 'UpSet' has introduced a new way to visualize the overlap of sets as an alternative to Venn diagrams.  This package provides a simple way to produce such plots using 'ggplot2'.  In addition it can convert any categorical axis into a combination matrix axis.
+"
+xmrr,images/xmr_chart.png,https://github.com/Zanidean/xmrr,Zanidean,xmrr,"XmR, Visualization, Control Charts, QC, XBar",TRUE,Alex Zanidean,"Generate XMR Control Chart Data from Time-Series Data.
+","Use xmr() for XmR data which re-calculates to signal true change, and use xmr_chart() for XmR style control charts with recalculated process limits.
+"
+gg3D,images/gg3D.png,https://github.com/AckerDWM/gg3D,AckerDWM,gg3D,"3D, Visualization",FALSE,Daniel Acker,"3D perspective plots for ggplot2
+","gg3D adds 3D axes, 3D perspective projections with arbitrary rotations, and 3D wireframe plots to ggplot.
+"
+ggQC,images/ggQC.png,https://github.com/kenithgrey/ggQC,kenithgrey,ggQC,"QC, XmR, XbarR, SixSigma, Visualization",TRUE,Kenith Grey,"Use ggQC to plot single, faceted and multi-layered quality control charts .
+","ggQC is used to create single, faceted, or multi-layered quality control charts using functions stat_QC(), stat_QC_lines() and stat_mR(). Supported charts include XmR, XbarR, n, c, p, np and more.
+"
+ggdist,images/ggdist.png,https://mjskay.github.io/ggdist,mjskay,ggdist,"visualization,uncertainty,confidence,probability",TRUE,mjskay,"'ggdist' provides stats and geoms for visualizing distributions and uncertainty.
+","'ggdist' provides stats and geoms for visualizing distributions that are particularly tuned for visualizing uncertainty in either a frequentist or Bayesian mode. Both analytical distributions (such as frequentist confidence distributions or Bayesian priors) and distributions represented as samples (such as bootstrap distributions or Bayesian posterior samples) are easily visualized. Visualization primitives include but are not limited to: points with multiple uncertainty intervals, eye plots, density plots, gradient plots, dot plots, quantile dot plots, complementary cumulative distribution function (CCDF) barplots, and fit curves with multiple uncertainty ribbons.
+"
+ggedit,images/ggedit.png,https://github.com/metrumresearchgroup/ggedit,metrumresearchgroup,ggedit,"visualization, interactive, shiny, general,themes",TRUE,yonicd,"ggedit is aimed to interactively edit ggplot layers, scales and themes aesthetics
+","ggedit is aimed to allows novice and expert ggplot2 users to interactively edit ggplot layers, scales and themes aesthetics, while returning objects and scripts of updated plots using shiny gadgets and modules.
+"
+ggpage,images/ggpage.png,https://emilhvitfeldt.github.io/ggpage/,emilhvitfeldt,ggpage,"visualization,text",TRUE,emilhvitfeldt,"Creates Page Layout Visualizations.
+","Facilitates the creation of page layout visualizations in which words are represented as rectangles with sizes relating to the length of the words. Which then is divided in lines and pages for easy overview of up to quite large texts.
+"
+ggpca,images/ggpca.png,https://cran.r-project.org/web/packages/ggpca/index.html,YaoxiangLi,ggpca,"visualization,dimensionality_reduction,PCA,t-SNE,UMAP",TRUE,Yaoxiang Li,"Provides tools for creating publication-ready PCA, t-SNE, and UMAP plots.
+","`ggpca` offers publication-ready dimensionality reduction plots, including Principal Component Analysis (PCA), t-Distributed Stochastic Neighbor Embedding (t-SNE), and Uniform Manifold Approximation and Projection (UMAP).  Designed for high-dimensional data visualization, it includes options for custom labels, density plots, and faceting, and is built on the 'ggplot2' framework. Useful for researchers and data scientists in various fields for efficient and insightful data visualization.
+"
+ggbreak,images/ggbreak.png,https://github.com/YuLab-SMU/ggbreak,YuLab-SMU,ggbreak,"visualization, geoms",TRUE,YuLab-SMU,"Set Axis Break for 'ggplot2'
+","An implementation of scale functions for setting axis breaks of a 'gg' plot.
+"
+ggimg,images/ggimg.png,https://github.com/statsmaths/ggimg,statsmaths,ggimg,"visualization, geoms",TRUE,statsmaths,"Graphics Layers for Plotting Image Data with ggplot2.
+","Provides two new layer types for displaying image data as layers within the Grammar of Graphics framework. Displays images using either a rectangle interface, with a fixed bounding box, or a point interface using a central point and general size parameter. Images can be given as local JPEG or PNG files, external resources, or as a list column containing raster image data.
+"
+gganatogram,images/gganatogram.png,https://github.com/jespermaag/gganatogram,jespermaag,gganatogram,"anatograms, tissue, visualization, anatomy, expression, pharmacology",FALSE,jespermaag,"gganatogram makes it possible to visualise tissues for different organisms  or cell compartments.
+","gganatogram is aimed to users who would like to visualise certain organs  or cell compartments based on values, or to highlight tissues. This can be  useful when the user easily want to display tissue information e.g. RNA-seq,  pharmacology or mutations per tissue.
+"
+ggforce,images/ggforce.png,https://github.com/thomasp85/ggforce,thomasp85,ggforce,"visualization,general",TRUE,thomasp85,"ggforce is aimed at providing missing functionality to ggplot2 through the extension system introduced with ggplot2 v2.0.0.
+",NA
+ggalt,images/ggalt.png,https://github.com/hrbrmstr/ggalt,hrbrmstr,ggalt,"visualization,general",TRUE,hrbrmstr,"A compendium of ‘geoms’, ‘coords’ and ‘stats’ for ‘ggplot2’.
+","A compendium of ‘geoms’, ‘coords’ and ‘stats’ for ‘ggplot2’, including splines, 1d and 2d densities, univariate average shifted histograms and a new map coordinate system based on the ‘PROJ.4’-library.
+"
+ggiraph,images/ggiraph.png,https://github.com/davidgohel/ggiraph,davidgohel,ggiraph,"visualization,general",TRUE,davidgohel,"htmlwidget to make 'ggplot' graphics interactive.
+",NA
+ggmuller,images/ggmuller.png,https://cran.r-project.org/web/packages/ggmuller/index.html,robjohnnoble,ggmuller,"visualization,evolution,dynamics",TRUE,robjohnnoble,"Creates Muller plots for visualizing evolutionary dynamics.
+","An attempt to set an easy-to-use standard for representing evolutionary dynamics. Should prove useful to researchers in experimental evolution, cancer research, population genetics, and beyond.
+"
+ggstance,images/ggstance.png,https://github.com/lionel-/ggstance,lionel-,ggstance,"visualization,general",TRUE,lionel-,"ggstance implements horizontal versions of common ggplot2 geoms.
+",NA
+ggrepel,images/ggrepel.png,https://github.com/slowkow/ggrepel,slowkow,ggrepel,"visualization,general",TRUE,slowkow,"Repel overlapping text labels away from each other.
+",NA
+ggraph,images/ggraph.png,https://github.com/thomasp85/ggraph,thomasp85,ggraph,"visualization,general",TRUE,thomasp85,"ggraph is tailored at plotting graph-like data structures (graphs, networks, trees, hierarchies...).
+",NA
+gginnards,images/gginnards.png,https://docs.r4photobiology.info/gginnards,aphalo,gginnards,"visualization,general,layer manipulation,debug",TRUE,aphalo,"Find, delete, insert and move plot layers. Delete unused variables from  the data stored within a ggplot object. Dump data to the R console.
+","Package ‘gginnards’ is a set of extensions to R package ‘ggplot2’  (>= 3.0.0). Provides tools making easy to edit and explore ggplot objects. It also provides stats and geom that can be used to dump the data input  to geoms and stats to the R console or to summarize it using arbitrary functions and then dumping the summary to the R console.
+"
+ggpp,images/ggpp.png,https://docs.r4photobiology.info/ggpp,aphalo,ggpp,"visualization,general",TRUE,aphalo,"Plot annotations, data labels, plot insets, filter labels by local  density (geoms, statistics, positions).
+","Package ‘ggpp’ (Grammar Extensions) is a set of extensions to  R package ‘ggplot2’ (>= 3.0.0). Provides `geom_plot()`, `geom_grob()`,  `geom_table()` and `stat_fmt_tb()` for insets. Constructors ggplot.ts()`  and `ggplot.xts()`. Geometries for margin annotations. Selective  annotation of observations in high/low density plot regions and nudging   away from lines or focal points, compatible with `geom_text_repel()` and  `geom_label_repel()` from package ‘ggrepel’.
+"
+ggpmisc,images/ggpmisc.png,https://docs.r4photobiology.info/ggpmisc,aphalo,ggpmisc,"visualization,statistics,general",TRUE,aphalo,"Model equation, line, residuals (lm, quantile, MA, rlm, etc.), P, F, AIC,  BIC, n, correlation, ANOVA and summary tables, multiple comparisons,  peaks and valleys, centroid, data labels.
+","Package ‘ggpmisc’ (Miscellaneous Extensions to ‘ggplot2’) is a set of extensions to R package ‘ggplot2’ (>= 3.0.0) with emphasis on annotations and highlighting related to fitted models and data summaries. scales suitable for volcano and quadrant plots. Stats for locating peaks and valleys. See also packages 'gginnards' and 'ggpp' for functions previously included in 'ggpmisc'.
+"
+geomnet,images/geomnet.png,https://github.com/sctyner/geomnet,sctyner,geomnet,"visualization,general",FALSE,sctyner,"geomnet implements network visualizations in ggplot2 via geom_net.
+",NA
+ggExtra,images/ggExtra.png,https://github.com/daattali/ggExtra,daattali,ggExtra,"histogram,marginal,density",TRUE,daattali,"ggExtra lets you add marginal density plots or histograms to ggplot2 scatterplots.
+",NA
+ggfortify,images/ggfortify.png,https://github.com/sinhrks/ggfortify,sinhrks,ggfortify,"visualization,general",TRUE,terrytangyuan,"The unified interface to ggplot2 many popular statistical pakackage results.
+","Unified plotting tools for statistics commonly used, such as GLM, time series, PCA families, clustering and survival analysis. The package offers a single plotting interface for these analysis results and plots in a unified style using 'ggplot2'.
+"
+autoplotly,images/ggfortify.png,https://github.com/terrytangyuan/autoplotly,terrytangyuan,autoplotly,"visualization,general",TRUE,terrytangyuan,"Automatic generation of interactive visualizations for popular statistical results.
+","Automatically generate interactive visualizations for popular statistical results supported by 'ggfortify', such as time series, PCA, clustering and survival analysis, with 'plotly.js' <https://plot.ly/>  and 'ggplot2' style. The generated visualizations can also be easily extended using 'ggplot2' and 'plotly' syntax while staying interactive.
+"
+gganimate,images/gganimate.gif,https://gganimate.com,thomasp85,gganimate,"visualization,general",TRUE,thomasp85,"A Grammar of Animated Graphics.
+","The grammar of graphics as implemented in the 'ggplot2' package has been successful in providing a powerful API for creating static  visualisation. In order to extend the API for animated graphics this package provides a completely new set of grammar, fully compatible with 'ggplot2'  for specifying transitions and animations in a flexible and extensible way.
+"
+ggfx,images/ggfx.png,https://ggfx.data-imaginist.com/,thomasp85,ggfx,"visualization,general",TRUE,thomasp85,"Pixel Filters for 'ggplot2' and 'grid'
+","Provides a range of filters that can be applied to layers from the  'ggplot2' package and its extensions, along with other graphic elements such  as guides and theme elements. The filters are applied at render time and  thus uses the exact pixel dimensions needed.
+"
+plotROC,images/plotROC.png,https://github.com/sachsmc/plotROC,sachsmc,plotROC,"visualization,general",TRUE,sachsmc,"plotROC provides functions to generate an interactive ROC curve plot  for web use, and print versions.
+",NA
+ggbump,images/ggbump.png,https://github.com/davidsjoberg/ggbump,davidsjoberg,ggbump,"visualization,general,geoms",TRUE,davidsjoberg,"Bump Chart and Sigmoid Curves.
+","A geom for ggplot to create bump plots. Can be good to use for showing  rank over time.
+"
+ggthemes,images/ggthemes.png,https://github.com/jrnold/ggthemes,jrnold,ggthemes,"visualization,general,themes",TRUE,jrnold,"Some extra geoms, scales, and themes for ggplot.
+",NA
+ggspectra,images/ggspectra.png,https://docs.r4photobiology.info/ggspectra,aphalo,ggspectra,"visualization,general",TRUE,aphalo,"Plot light-related spectra, peaks, valleys, half maximum, labels with  summaries and colours from spectral data (autoplot, stats, geoms, scales).
+","The goal of ‘ggspectra’ is to make it easy to plot radiation spectra and similar data, such and transmittance, absorbance and reflectance spectra, producing fully annotated publication- and presentation-ready plots. Package ‘ggspectra’ provides stats, geoms, scales and functions to be used for plotting radiation-related spectra and annotating the plots with quantities derived from spectral data. All summary quantities implemented in ‘photobiology’ can be used for annotations including biologically effective irradiances and exposures.
+"
+ggstatsplot,images/ggstatsplot.png,https://github.com/IndrajeetPatil/ggstatsplot,IndrajeetPatil,ggstatsplot,"visualization,statistics",TRUE,IndrajeetPatil,"'ggstatsplot' provides a collection of functions to enhance 'ggplot2' plots with results from statistical tests.
+","Extension of 'ggplot2', 'ggstatsplot' creates graphics with details from statistical tests included in the plots themselves. It provides an easier syntax to generate information-rich plots for statistical analysis of continuous (violin plots, scatterplots, histograms, dot plots, dot-and-whisker plots) or categorical (pie and bar charts) data. Currently, it supports the most common types of statistical approaches and tests: parametric, nonparametric, robust, and Bayesian versions of t-test/ANOVA, correlation analyses, contingency table analysis, meta-analysis, and regression analyses.
+"
+ggnetwork,images/ggnetwork.png,https://github.com/briatte/ggnetwork,briatte,ggnetwork,"visualization,general",TRUE,briatte,"The ggnetwork package provides a way to build network plots with ggplot2.
+",NA
+ggtech,images/ggtech.png,https://github.com/ricardo-bion/ggtech,ricardo-bion,ggtech,"visualization,general,themes",FALSE,ricardo-bion,"ggplot2 tech themes, scales, and geoms.
+",NA
+ggradar,images/ggradar.png,https://github.com/ricardo-bion/ggradar,ricardo-bion,ggradar,"visualization,general",FALSE,ricardo-bion,"ggradar allows you to build radar charts with ggplot2.
+",NA
+ggx,images/ggx.png,https://github.com/brandmaier/ggx,brandmaier,ggx,"visualization,nlp",TRUE,brandmaier,"A Natural Language Interface to 'ggplot2'.
+","The 'ggplot2' package is the state-of-the-art toolbox for  creating and formatting graphs. However, it is easy to forget  how certain formatting commands are named and sometimes users  find themselves asking: How do you rotate the x-axis labels again?  Or how do you hide the legend...? This package allows users to issue  natural language commands related to theme-related styling of plots  (colors, font size and such), which then are translated into valid  'ggplot2' commands.
+"
+ggTimeSeries,images/ggTimeSeries.png,https://github.com/Ather-Energy/ggTimeSeries,Ather-Energy,ggTimeSeries,"visualization,general",TRUE,Ather-Energy,"This R package offers novel time series visualisations.
+",NA
+ggtree,images/ggtree.png,https://guangchuangyu.github.io/ggtree,GuangchuangYu,ggtree,"visualization,general",FALSE,GuangchuangYu,"gtree is designed for visualizing phylogenetic tree and different types of associated annotation data.
+",NA
+ggseas,images/ggseas.png,https://github.com/ellisp/ggseas,ellisp,ggseas,"visualization,general",TRUE,ellisp,"Seasonal adjustment on the fly extension for ggplot2.
+",NA
+ggsci,images/ggsci.png,https://nanx.me/ggsci/,road2stat,ggsci,"visualization,general",TRUE,road2stat,"A collection of ‘ggplot2’ color palettes inspired by scientific journals  and science fiction TV shows.
+",NA
+ggmosaic,images/ggmosaic.png,https://github.com/haleyjeppson/ggmosaic,haleyjeppson,ggmosaic,"visualization,general",TRUE,haleyjeppson,"ggmosaic implements mosaic plots in ‘ggplot2’ via geom_mosaic.
+",NA
+survminer,images/survminer.png,https://www.sthda.com/english/rpkgs/survminer/,kassambara,survminer,"visualization,survival",TRUE,kassambara,"Drawing Survival Curves using 'ggplot2'
+","Contains the function 'ggsurvplot()' for drawing easily beautiful and  'ready-to-publish' survival curves with the 'number at risk' table.  Other functions are also available for visual examinations of 'cox' model  assumptions.
+"
+ggeasy,images/ggeasy.png,https://jonocarroll.github.io/ggeasy/,jonocarroll,ggeasy,"visualization,teaching",TRUE,jonocarroll,"Easy Access to 'ggplot2' Commands
+","Provides a series of aliases to commonly used but difficult  to remember 'ggplot2' sequences.
+"
+ggside,images/ggside.png,https://github.com/jtlandis/ggside,jtlandis,ggside,"visualization,correlation",TRUE,jtlandis,"Side Grammar Graphics
+","The grammar of graphics as shown in 'ggplot2' has provided an expressive API for users to build plots. 'ggside' extends 'ggplot2'  by allowing users to add graphical information about one of the main panel's axis using a familiar 'ggplot2' style API with tidy data. This package is particularly useful for visualizing metadata on a discrete axis, or summary graphics on a continuous axis such as a boxplot or a density distribution.
+"
+ggcorrplot,images/ggcorrplot.png,https://rpkgs.datanovia.com/ggcorrplot/,kassambara,ggcorrplot,"visualization,correlation",TRUE,kassambara,"Visualization of a correlation matrix using 'ggplot2'
+","The 'ggcorrplot' package can be used to visualize easily a correlation matrix using 'ggplot2'. It provides a solution for reordering the correlation matrix and displays the significance level on the plot. It also includes a function for computing a matrix of correlation p-values.
+"
+ggpubr,images/ggpubr.png,https://rpkgs.datanovia.com/ggpubr/,kassambara,ggpubr,"visualization,statistics",TRUE,kassambara,"‘ggplot2’ Based Publication Ready Plots
+","The 'ggplot2' package is excellent and flexible for elegant data visualization in R. However the default generated plots requires some formatting before we can send them for publication. Furthermore, to customize a 'ggplot', the syntax is opaque and this raises the level of difficulty for researchers with no advanced R programming skills. 'ggpubr' provides some easy-to-use functions for creating and customizing 'ggplot2'- based publication ready plots.
+"
+ggthemr,images/cttobin-ggthemr.png,https://github.com/cttobin/ggthemr,cttobin,ggthemr,"visualization,general,themes",FALSE,cttobin,"Themes for ggplot
+","Themes for ggplot. The idea of this package is that you can just set the theme and then forget about it. You should not have to change any of your existing code.
+"
+GGally,images/ggally.png,https://ggobi.github.io/ggally/,ggobi,ggally,"visualization,general",TRUE,ggobi,"ggally extends 'ggplot2' by adding several functions to reduce the complexity of combining geometric objects with transformed data.
+","ggplot2 is a plotting system based on the grammar of graphics. 'GGally' extends 'ggplot2' by adding several functions to reduce the complexity of combining geometric objects with transformed data. Some of these functions include a pairwise plot matrix, a two group pairwise plot matrix, a parallel coordinates plot, a survival plot, and several functions to plot networks.
+"
+ggseqlogo,images/ggseqlogo.png,https://github.com/omarwagih/ggseqlogo,omarwagih,ggseqlogo,"visualization,general",TRUE,omarwagih,"Publication-ready sequence logos using ggplot2.
+","ggseqlogo extends 'ggplot2' allowing users to flexibily plot sequence logos.
+"
+ggChernoff,images/ggChernoff.png,https://github.com/Selbosh/ggChernoff,Selbosh,ggChernoff,visualization,TRUE,Selbosh,"Visualise multivariate data using human faces
+","Adds geoms, scales and aesthetics to plot 'Chernoff' faces that vary their expression according to your data. Make your data smile or frown, angry or straight-faced, with continuous scales and legend support.
+"
+ggridges,images/ggridges.png,https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html,clauswilke,ggridges,"visualization,general",TRUE,clauswilke,"Ridgeline plot geoms for 'ggplot2'
+","Ridgeline plots provide a convenient way of visualizing changes in distributions over time or space. This package enables the creation of such plots in 'ggplot2'.
+"
+lemon,images/lemon.png,https://github.com/stefanedwards/lemon,stefanedwards,lemon,"visualization,brackets,axis",TRUE,stenfanedwards,"Repositioning legends and adding brackets to axes to 'ggplot2'.
+","Functions for working with legends and axis lines of 'ggplot2', facets that repeat axis lines on all panels, and some 'knitr' extensions.
+"
+cowplot,images/cowplot.png,https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html,wilkelab,cowplot,"visualization,general,themes",TRUE,clauswilke,"Streamlined plot theme and plot annotations for 'ggplot2'
+","The package provides a streamlined and clean theme that is used in the Wilke lab, hence the package name, which stands for Claus O. Wilke's plot package. The package also provide functionality to combine multiple 'ggplot2' plots into one, align them, and label them with letters, e.g. A, B, C, etc., as is often required for scientific publications.
+"
+qqplotr,images/qqplotr.png,https://github.com/aloy/qqplotr,aloy,qqplotr,"quantile-quantile,probability-probability",TRUE,almeidaxan,"Quantile-quantile and probability-probability plot extensions for 'ggplot2'
+","The package extends some 'ggplot2' functionalities by permitting the drawing of quantile-quantile (Q-Q) and probability-probability (P-P) points, lines, and confidence bands. The functions of this package also allow the detrend adjustment, previously proposed in the literature to help reduce visual bias when assessing those type of plots.
+"
+ggalluvial,images/ggalluvial.png,https://github.com/corybrunson/ggalluvial,corybrunson,ggalluvial,"visualization,categorical,time series",TRUE,corybrunson,"A 'ggplot2' extension for alluvial diagrams.
+","Alluvial diagrams encompass a variety of charts that use x-splines (alluvia and flows), sometimes augmented with stacked bars (lodes or strata), to visualize incidence structures derived from several data types, including repeated categorical measures, evolving classifications, and multi-dimensional categorical data. This package contains stats and geoms that interpret multiple data formats compatible with this framework while hewing to the principles of tidy data and the grammar of graphics.
+"
+patchwork,images/thomasp85-patchwork.png,https://github.com/thomasp85/patchwork#patchwork,thomasp85,patchwork,"visualization,composition",TRUE,thomasp85,"Easy composition of ggplot plots using arithmetic operators
+","ggplot2 is concerned with single plots, facets notwithstanding, and does not provide a native way to compose multiple plots. patchwork extends the standard ggplot2 API to allow composition with the '+' operator as well as other the means to customize the layout and nest sub-arrangements.
+"
+ggquiver,images/ggquiver.png,https://github.com/mitchelloharawild/ggquiver,mitchelloharawild,ggquiver,"visualization,quiver,velocity,vector",TRUE,mitchelloharawild,"Quiver/velocity plots for 'ggplot2'.
+","Quiver plots are common a common visualisation method for vector fields. 'ggquiver' provides a new geom which simplifies the creation of these plots, with scaling and centering functionality.
+"
+ggsignif,images/ggsignif.png,https://github.com/const-ae/ggsignif,const-ae,ggsignif,"visualization,multiple comparisons",TRUE,const-ae and IndrajeetPatil,"Significance Brackets for 'ggplot2'.
+","Enrich your 'ggplots' with group-wise comparisons. This package provides an easy way to indicate if two groups are significantly different. Commonly this is shown by a bracket on top connecting the groups of interest which itself is annotated with the level of significance (NS, *, **, ***).  The package provides a single layer (geom_signif()) that takes the groups for comparison and the test (t.test(), wilcox.text() etc.) as arguments and adds the annotation to the plot.
+"
+ggdag,images/ggdag.png,https://ggdag.malco.io/,malcolmbarrett,ggdag,"visualization,dags,inference",TRUE,malcolmbarrett,"Causal directed acyclic graphs (DAGs) in `ggplot2`
+","Tidy, visualize, and analyze causal DAGs. `ggdag` fuses the `dagitty` package, which contains powerful algorithms for analyzing causal diagrams, with the flexibility of `ggplot2` and `ggraph`.
+"
+ggformula,images/projectmosaic-ggformula.png,https://projectmosaic.github.io/ggformula/,ProjectMOSAIC,ggformula,"visualization,general,interface",TRUE,rpruim,"`ggplot2` via formulas and pipes
+","`ggformula` provides a formula-based interface for `ggplot2` that uses pipes (`%>%`) for layering.
+"
+ggbeeswarm,images/ggbeeswarm.png,https://github.com/eclarke/ggbeeswarm,eclarke,ggbeeswarm,"visualization, beeswarm, categorical",TRUE,Erik Clarke and Scott Sherrill-Mix,"Create beeswarm plots, which avoids overlapping datapoints.
+","Beeswarm plots (aka column scatter plots or violin scatter plots) are a way of plotting points that would ordinarily overlap so that they fall next to each other instead. In addition to reducing overplotting, it helps visualize the density of the data at each point (similar to a violin plot), while still showing each data point. `ggbeeswarm `provides two different methods to create beeswarm-style plots using ggplot2. `geom_quasirandom()` uses a van der Corput sequence or Tukey texturing  o space the dots to avoid overplotting. `geom_beeswarm()` uses the Aron Ecklund's `beeswarm` library to do point-size based offset.
+"
+ggperiodic,images/ggperiodic-cos.png,https://github.com/eliocamp/ggperiodic,eliocamp,ggperiodic,"visualization,periodic",TRUE,eliocamp,"Automagically augment periodic data in `ggplot2`
+","Allows you to wrap periodic data to any arbitrary domain automatically inside the ggplot2 call.
+"
+ggpol,images/erocoar-ggpol.png,https://github.com/erocoar/ggpol,erocoar,ggpol,"visualization,general",TRUE,erocoar,"ggpol adds parliament diagrams and several other geoms to ggplot2.
+",NA
+ggpirate,images/ggpirate.png,https://github.com/mikabr/ggpirate,mikabr,ggpirate,visualization,FALSE,mikabr,"Pirate plots for `ggplot2`
+","A pirate plot (as seen in Nathaniel Phillips's package `yarrr`) is a way of displaying data where a continuous dependent variable is a function of a categorical independent variable, in a more informative way than the traditional barplot. `ggpirate` creates customizable versions of these plots with a single `ggplot2` `geom`, `geom_pirate`.
+"
+esquisse,images/esquisse.png,https://github.com/dreamRs/esquisse,dreamrs,esquisse,"visualization,interface",TRUE,dreamrs,"Explore and Visualize Your Data Interactively with `ggplot2`
+","A 'shiny' gadget to create 'ggplot2' charts interactively with drag-and-drop to map your variables. You can quickly visualize your data accordingly to their type, export to 'PNG' or 'PowerPoint', and retrieve the code to reproduce the chart.
+"
+ggdark,images/nsgrantham-ggdark.png,https://github.com/nsgrantham/ggdark,nsgrantham,ggdark,"visualization,general,themes",TRUE,nsgrantham,"Dark Mode for `ggplot2` Themes
+","Activate dark mode on your favorite `ggplot2` theme with `dark_mode()` or use the dark versions of native `ggplot2` themes, including `dark_theme_gray()`, `dark_theme_minimal()`, and others.
+"
+sugrrants,images/sugrrants.png,https://pkg.earo.me/sugrrants,earowang,sugrrants,"visualization,calendar,time-series",TRUE,earowang,"Supporting Graphs for Analysing Temporal Data with `ggplot2`.
+","Provides 'ggplot2' graphics for analysing temporal data. It aims to fit into the 'tidyverse' and grammar of graphics framework for handling temporal data.
+"
+tvthemes,images/ryo-n7-tvthemes.png,https://github.com/Ryo-N7/tvthemes,Ryo-N7,tvthemes,"visualization,general,palettes,themes",TRUE,Ryo-N7,"`ggplot2` Themes & Palettes from popular TV shows!
+","Contains various `ggplot2` themes and color palettes based on TV shows such as 'Game of Thrones', 'Brooklyn Nine-Nine', 'The Simpsons', 'Avatar: The Last Airbender', 'Spongebob Squarepants', and more.
+"
+ggfittext,images/ggfittext.png,https://wilkox.org/ggfittext,wilkox,ggfittext,"visualization,general,text",TRUE,wilkox,"`ggplot2` geoms to fit text in a box
+","Provides `ggplot2` geoms for automatically resizing and reflowing text to fit in a defined area, including bar and column plots.
+"
+ggparty,images/martin-borkovec-ggparty.png,https://github.com/martin-borkovec/ggparty,martin-borkovec,ggparty,"visualization,tree,partykit",TRUE,martin-borkovec,"`ggplot2` visualizations for the `partykit` package
+","ggparty aims to extend ggplot2 functionality to the partykit package. It provides the necessary tools to create clearly structured and highly customizable visualizations for tree-objects of the class 'party'
+"
+gggenes,images/gggenes.png,https://wilkox.org/gggenes,wilkox,gggenes,"visualization,general,genetics",TRUE,wilkox,"`ggplot2` geoms to draw gene arrow maps
+","Provides a 'ggplot2' geom and helper functions for drawing gene arrow maps, including labelling genes and highlighting subgene regions.
+"
+gggenomes,images/gggenomes.png,https://thackl.github.io/gggenomes,thackl,gggenomes,"visualization,genetics,genomics",TRUE,thackl,"a grammar of graphics for comparative genomics
+","a `ggplot2`-based versatile graphics package for comparative genomics adding dedicated layers for genes, mappings, syntenic regions, ..., and verbs to for example quickly zoom into gene neighborhoods.
+"
+treemapify,images/treemapify.png,https://wilkox.org/treemapify,wilkox,treemapify,"visualization,general,treemap",TRUE,wilkox,"Draw treemaps in `ggplot2`
+","Provides `ggplot2` geoms for drawing treemaps, including text labels and up to three levels of nested groups.
+"
+lindia,images/lindia.png,https://github.com/yeukyul/lindia,yeukyul,lindia,"visualization,general,diagnostics,regression",TRUE,yeukyul,"Create diagnostics plots for linear regression
+","Using `lindia` (short for linear-regression diagnostics), you can create all the basic diagnostic plots for a linear regression model in `ggplot2` with just one function call.
+"
+gghalves,images/erocoar-gghalves.png,https://github.com/erocoar/gghalves,erocoar,gghalves,"visualization,general",TRUE,erocoar,"gghalves adds half-geoms to `ggplot2`.
+","`gghalves` makes it easy to compose your own half-half plots via `ggplot2`. Think displaying a boxplot next to jittered points, or violin plots side by side with dotplots.
+"
+ggrastr,images/vpetukhov-ggrastr.png,https://github.com/VPetukhov/ggrastr,vpetukhov,ggrastr,"visualization,raster",TRUE,vpetukhov,"Rasterize only specific layers of your plot
+","`ggrastr` provides set of geoms to rasterize only specific layers of the plot (e.g. large scatterplots) keeping all labels and text in vector format. Allows to keep your plots within the reasonable size limit without loosing vector properties of the scale-sensitive information.
+"
+ggpointdensity,images/lkremer-ggpointdensity.png,https://github.com/LKremer/ggpointdensity,LKremer,ggpointdensity,"visualization,general",TRUE,LKremer,"Introduces `geom_pointdensity()`: A cross between a scatter plot and a 2D density plot.
+","There are several ways to visualize data points on a 2D coordinate system: If you have lots of data points on top of each other, `geom_point()` fails to give you an estimate of how many points are overlapping. `geom_density2d()` and `geom_bin2d()` solve this issue, but they make it impossible to investigate individual outlier points, which may be of interest. `geom_pointdensity()` aims to solve this problem by combining the best of both worlds: individual points are colored by the number of neighboring points. This allows you to see the overall distribution, as well as individual points.
+"
+ggsom,images/ggsom.png,https://github.com/oldlipe/ggsom,oldlipe,ggsom,"visualization,SOM,multi-dimensional,parallel-coordinates",TRUE,oldlipe,"The aim of this package is to offer more variability of graphics based on the self-organizing maps.
+","Analysis of multidimensional and time series data is useful and pertinent to several different applications, being a challenge due to the volume and complexity of the data. A possible approach for analysis of this kind of data is use clustering algorithms to reduce the dimensionality of the data. This package uses Self-Organizing Map to data dimensionality reduction. Use geom_class() to visualization in parallelel coordinates each neuron of the Self-Organizing Maps.
+"
+ggnewscale,images/ggnewscale.png,https://github.com/eliocamp/ggnewscale,eliocamp,ggnewscale,"visualization,general,scales",TRUE,eliocamp,"Use multiple fill and colour scales in 'ggplot2'.
+","Attempts to solve the lack of multiple colour scales in ggplot2 using a intuitive and familiar interface.
+"
+ggh4x,images/teunbrand-ggh4x.png,https://teunbrand.github.io/ggh4x/,teunbrand,ggh4x,"visualization,general,scales,facets",TRUE,teunbrand,"Options for tailored facets, multiple colourscales and miscellaneous
+","Expands options for facetted plots, including nested facets, adjusting sizes and facet-wise position scales. Also hosts a small selection of geoms, stats and positions.
+"
+ggarrow,images/teunbrand-ggarrow.png,https://teunbrand.github.io/ggarrow/,teunbrand,ggarrow,"visualization, arrows, lines",TRUE,teunbrand,"Arrow geoms and arrow theme element with customisation options
+","ggarrow provides a rich variant of paths with arrows. It includes options for variable-width paths, customisable arrow heads, endpoint dodging,  and placing arrow heads along the path.
+"
+legendry,images/teunbrand-legendry.png,https://github.com/teunbrand/legendry,teunbrand,legendry,"visualization, guide, legend, axis",TRUE,teunbrand,"Extended legends and axes
+","A ggplot2 extension that focusses on expanding the plotter's arsenal of  guides. Guides in ggplot2 include axes and legends. legendry offers new  axes and annotation options, as well as new legends and colour displays.
+"
+ggcharts,images/ggcharts.png,https://thomas-neitmann.github.io/ggcharts/index.html,thomas-neitmann,ggcharts,"visualization,general",TRUE,thomas-neitmann,"Shorten the distance from data visualization idea to actual plot
+","ggcharts provides a high-level ggplot2 interface for creating common charts. Its aim is both simple and ambitious: shorten the distance from data visualization idea to actual plot. How so? By taking care of a lot of data preprocessing, obscure ggplot2 details and plot styling for you. The resulting plots are ggplot objects and can be further customized using any ggplot2 function.
+"
+humapr,images/humapr.png,https://github.com/benskov/humapr,benskov,humapr,"visualization,general,tabulation,choropleth",FALSE,benskov,"Visualise topographic human data with choropleths
+","Several domains deal with topographic human data, both exterior on the body surface (e.g., injury research) and interior (e.g., forensic pathology). This package seeks to offer a straightforward API for visualising such data. For now, the package offers two maps: a simplified body surface map (and an extension compatible with the Abbreviated Injury Score) and internal organs. Producing ggplot2 objects, it's easy to fine-tune their appearance with the ggplot2 toolbox.
+"
+ggshadow,images/ggshadow.png,https://github.com/marcmenem/ggshadow,marcmenem,ggshadow,"visualization,general",TRUE,marcmenem,"Draw a shadow below lines to make busy plots more aesthetically pleasing
+","A collection of geoms for R's 'ggplot2' library. geom_shadowpath(), geom_shadowline(), geom_shadowstep() and geom_shadowpoint() functions draw a shadow below lines to make busy plots more aesthetically pleasing. geom_glowpath(), geom_glowline(), geom_glowstep() and geom_glowpoint() add a neon glow around lines to get a steampunk style. 
+"
+ggseg,images/ggseg-ext.png,https://github.com/LCBC-UiO/ggseg,LCBC-UiO,ggseg,"visualization,brain imaging",TRUE,Athanasiamo,"Draw polygons of brain atlas segmentations
+","In neuroimaging, it is common to segment the brain into finite smaller number of regions that share some property (function, neuroanatomy etc). `ggseg()` makes it possible to visualize these segmentations using polygons.
+"
+mdthemes,images/mdthemes.png,https://github.com/thomas-neitmann/mdthemes,thomas-neitmann,mdthemes,"visualization,themes",FALSE,thomas-neitmann,"'ggplot2' themes that render text as markdown/HTML
+","`{mdthemes}` provides themes that render text as markdown/HTML. This enables making individual words bold or italics as well as coloring them.
+"
+ggwordcloud,images/ggwordcloud.png,https://lepennec.github.io/ggwordcloud/,lepennec,ggwordcloud,"visualization,text",TRUE,lepennec,"A word cloud text geom for 'ggplot2'.
+","`ggwordcloud` provides a word cloud text geom for `ggplot2`. The placement algorithm implemented in C++ is an hybrid between the one of `wordcloud` and the one of `wordcloud2.js`. The cloud can grow according to a shape and stay within a mask. The size aesthetic is used either to control the font size or the printed area of the words. `ggwordcloud` also supports arbitrary text rotation. The faceting scheme of `ggplot2` can also be used. Two functions meant to be the equivalent of `wordcloud` and `wordcloud2` are proposed. Last but not least you can use `gridtext` markdown/html syntax in the labels.
+"
+ggasym,images/ggasym.png,https://jhrcook.github.io/ggasym/index.html,jhrcook,ggasym,"visualization,multi-dimensional,matrix,scales",FALSE,jhrcook,"Asymmetric matrix plotting with multiple scales.
+","‘ggasym’ plots a symmetric matrix with three different fill aesthetics for the top-left and bottom-right triangles and along the diagonal. It operates within the Grammar of Graphics paradigm implemented in ‘ggplot2’.
+"
+gglorenz,images/gglorenz.png,https://github.com/jjchern/gglorenz,jjchern,gglorenz,"visualization,general,statistics",TRUE,jjchern,"Plotting Lorenz curves with the blessing of ggplot2.
+","`gglorenz` provides statistical transformations for plotting empirical ordinary Lorenz curve (Lorenz 1905) <doi:10.2307/2276207> and generalized Lorenz curve (Shorrocks 1983) <doi:10.2307/2554117>.
+"
+hrbrthemes,images/hrbrmstr-hrbrthemes.png,https://github.com/hrbrmstr/hrbrthemes,hrbrmstr,hrbrthemes,"theme,typography",TRUE,hrbrmstr,"A compilation of extra {ggplot2} themes, scales and utilities, including a spell check function for plot label fields and an overall emphasis on typography.","`hrbrthemes` is a very focused package that provides typography-centric themes and theme components for ggplot2. The core theme: `theme_ipsum` (“ipsum” is Latin for “precise”) has eight font variants (seven of which are included with the package) and provides many less-verbose ways to specify base theme styling aesthetics.
+"
+ggpattern,images/ggpattern.png,https://github.com/trevorld/ggpattern,trevorld,ggpattern,"visualization,pattern",TRUE,coolbutuseless,Pattern fills for ggplot2 geoms.,"`ggpattern` provides geoms to use within ggplot which can be filled with patterns. Supported patterns include stripes, dots, checks, image files, gradients, etc.
+"
+ggtext,images/ggtext.png,https://wilkelab.org/ggtext/,clauswilke,ggtext,"general,theme,typography",TRUE,Claus Wilke,"Improved text rendering support for `ggplot2`
+","`ggtext` provides simple Markdown and HTML rendering for ggplot2.
+"
+calendR,images/calendR.png,https://r-coder.com/calendar-plot-r/,R-CoderDotCom,calendR,"visualization, calendar, time-series",TRUE,R-CoderDotCom,"Ready to Print Monthly and Yearly Calendars
+","Contains the function calendR() for creating fully customizable monthly and yearly calendars (colors, fonts, formats, ...) and even heatmap calendars. In addition, it allows saving the calendars in ready to print A4 format PDF files.
+"
+ggip,images/ggip.png,https://davidchall.github.io/ggip/,davidchall,ggip,"visualization, cyber, space-filling curves",TRUE,davidchall,"Data visualization of IP addresses and networks
+","`ggip` provides a coordinate system that maps IP data to the 2D grid, using a space-filling curve (either the Hilbert or Morton curve). This data can then be used with regular `ggplot2` layers or with custom `ggip` layers.
+"
+gglm,images/gglm.png,https://graysonwhite.github.io/gglm/,graysonwhite,gglm,"visualization,modeling,diagnostic",TRUE,graysonwhite,"Grammar of Graphics for linear model diagnostic plots.
+","`gglm`, The Grammar of Graphics for Linear Model Diagnostics, is a package that creates beautiful `ggplot2` diagnostic plots for linear models that are easy to use and adhere to The Grammar of Graphics. The purpose of this package is to provide a sensible alternative to using the base-R `plot()` function to produce diagnostic plots for linear models.
+"
+econocharts,images/econocharts.png,https://r-coder.com/economics-charts-r/,R-CoderDotCom,econocharts,"economics, microeconomics, macroeconomics",FALSE,R-CoderDotCom,"Microeconomics and Macroeconomics Charts
+","Contains several functions for creating fully-customizable microeconomics or macroeconomics charts, such as supply and demand curves, indifference curves, production-possibility frontiers or Laffer curves.
+"
+ComplexUpset,images/krassowski-complex-upset.png,https://github.com/krassowski/complex-upset,krassowski,complex-upset,"visualization,venn,set,intersections,venn-diagram,upset",TRUE,krassowski,"Visualize set intersections and add `ggplot2` annotations
+","UpSet plots are an improvement over Venn Diagram for set overlap visualizations. Striving to bring the best of the 'UpSetR' and 'ggplot2', this package offers a way to create complex overlap visualisations, using simple and familiar tools, i.e. geoms of 'ggplot2'. For introduction to UpSet concept, see Lex et al. (2014).
+"
+ggchromatic,images/teunbrand-ggchromatic.png,https://teunbrand.github.io/ggchromatic/,teunbrand,ggchromatic,"visualization,scales",FALSE,teunbrand,"Colourspace Scales for 'ggplot2'
+","The 'ggchromatic' package provides additional colour and fill scales to  use with 'ggplot2'. Using the 'ggplot2' extension system, so called  chromatic scales are introduced that map a mix of continuous and discrete  variables to the channels of different colour spaces. 
+"
+ggheatmap,images/ggheatmap.png,https://github.com/XiaoLuo-boy/ggheatmap,XiaoLuo-boy,ggheatmap,"visualization, heatmap",TRUE,XiaoLuo-boy,"ggplot2 version of heatmap
+","The flexibility and excellence of 'ggplot2' is unquestionable, so many drawing  tools basically need 'ggplot2' as the operating object. In order to develop a  heatmap drawing system based on ggplot2, we developed this tool, mainly to solve  the heatmap puzzle problem and the flexible connection between the heatmap and  the 'ggplot2' object.  The advantages of this tool are as follows:  1. More flexible label settings;  2. Realize the linkage of heatmap and 'ggplot2' drawing system, 
+   which is helpful for operations such as puzzles; 
+3. Simple and easy to operate;  4. Optimization of clustering tree visualization.
+"
+see,images/see.png,https://github.com/easystats/see,easystats,see,"visualizations,statistics",TRUE,easystats,"Visualisation Toolbox for 'easystats' and Extra Geoms, Themes and Color Palettes for 'ggplot2'","Provides plotting utilities supporting easystats-packages (<https://github.com/easystats/easystats>) and some extra themes, geoms, and scales for 'ggplot2'. Color scales are based on <https://www.materialui.co/colors>.
+"
+directlabels,images/directlabels.png,https://tdhock.github.io/directlabels,tdhock,directlabels,"visualization, direct-labels, positioning, general, plot-labelling",TRUE,tdhock,Framework for adding direct labels to lattice or ggplot2 plots.,"Modern plotting packages like lattice and ggplot2 show automatic legends  based on the variable specified for color, but these legends can be often confusing if there are too many colors. To help with this, the directlabels package provides direct variable-labelling on intuitively placed positions which are a useful, clear and more attractive alternative to those confusing  legends observed in many common plots.
+"
+ggHoriPlot,images/ggHoriPlot.png,https://github.com/rivasiker/ggHoriPlot,rivasiker,ggHoriPlot,"visualization,general,horizon-plot,time-series",TRUE,rivasiker,"Horizon Plots for `ggplot2`
+","`ggHoriPlot` is a user-friendly, highly customizable R package for building horizon plots in `ggplot2`, where both the origin of the horizon plot and the  cutpoints of the different intervals can be user-speficied for greater  flexibility. 
+"
+ggtrace,images/ggtrace.png,https://rnabioco.github.io/ggtrace/,rnabioco,ggtrace,visualization,TRUE,sheridar,"Outline groups of data points using ggplot2
+","Provides 'ggplot2' geoms that allow groups of data points to be outlined or highlighted for emphasis. This is particularly useful when working with dense datasets that are prone to overplotting.
+"
+ggESDA,images/ggESDA.png,https://github.com/kiangkiangkiang/ggESDA,kiangkiangkiang,ggESDA,"visualization,symbolic data,interval-valued data",TRUE,kiangkiangkiang,"Exploratory Symbolic Data Analysis with 'ggplot2'.
+","The 'ggESDA' package provides the advanced graphic techniques including the  multivariate visualization, exhibition with modal multi-valued and interval-valued, and classification by color mapping. Also, summarize the classical data into symbolic data by various customized method.
+"
+geomtextpath,images/geomtextpath.png,https://allancameron.github.io/geomtextpath/,AllanCameron,geomtextpath,"typography,plot-labelling,visualization",TRUE,AllanCameron,"Create curved text and directly label lines in `ggplot`
+","Directly labelling your plots with text that follows the curves of your  data not only makes for a pretty plot. It can function as an alternative  to a legend, freeing up valuable space, and makes plots easier for a  general audience to understand. With support for bidirectional text, richtext, plotmath and even simple feature (sf) maps, `geomtextpath` aims to make annotating plots simple and accessible.
+"
+ggdensity,images/ggdensity.png,https://jamesotto852.github.io/ggdensity,jamesotto852,ggdensity,"visualization,density-estimation",TRUE,jamesotto852,"Interpretable bivariate density visualization with highest density regions
+","`ggdensity` provides `geom_hdr()` and `geom_hdr_lines()` as drop-in replacements for `ggplot2` functions `geom_density_2d_filled()` and `geom_density_2d()`, facilitating the plotting of highest density regions  (HDRs) in place of arbitrary density contours. A variety of statistically rigorous density estimators are available, as well as helper functions `geom_hdr_fun()` and `geom_hdr_lines_fun()` for plotting HDRs of  (potentially un-normalized) user-specified bivariate probability  density functions.
+"
+ggtranscript,images/dzhang32-ggtranscript.png,https://dzhang32.github.io/ggtranscript/,dzhang32,ggtranscript,"visualization,genetics,genomics,transcripts,annotation",FALSE,dzhang32,"Visualizing transcript structure and annotation using `ggplot2`
+","The goal of ggtranscript is the simplify the process of visualizing  transcript structure and annotation. To achieve this, ggtranscript  introduces 5 new geoms (geom_range(), geom_half_range(), geom_intron(),  geom_junction() and geom_junction_label_repel()) as well as several helper functions. As a ggplot2 extension, ggtranscript inherits ggplot2's  familiarity and flexibility, enabling users to intuitively adjust  aesthetics, parameters, scales etc as well as complement ggtranscript  geoms with existing ggplot2 geoms to create informative, publication-ready  plots.
+"
+piecepackr,images/piecepackr-piecepackr.png,https://trevorldavis.com/piecepackr,piecepackr,piecepackr,"board games, geoms",TRUE,trevorld,"Board game graphics
+","Functions to make board game graphics with the 'ggplot2', 'grid', 'rayrender', 'rayvertex', and 'rgl' packages.  Specializes in game diagrams, animations, and ""Print & Play"" layouts for the 'piecepack' <https://www.ludism.org/ppwiki> but can make graphics for other board game systems.  Includes configurations for several public domain game systems such as checkers, (double-18) dominoes, go, 'piecepack', playing cards, etc.
+"
+oblicubes,images/trevorld-oblicubes.png,https://trevorldavis.com/R/oblicubes,trevorld,oblicubes,"visualization, geoms",TRUE,trevorld,"3D Rendering Using Obliquely Projected Cubes and Cuboids
+","Three-dimensional rendering for 'grid' and 'ggplot2' graphics using cubes and cuboids drawn with an oblique projection.  As a special case also supports primary view orthographic projections.  Can be viewed as an extension to the 'isocubes' package <https://github.com/coolbutuseless/isocubes>.
+"
+ggDoubleHeat,images/ggdoubleheat.png,https://github.com/PursuitOfDataScience/ggDoubleHeat,PursuitOfDataScience,ggDoubleHeat,"visualization, geoms",TRUE,PursuitOfDataScience,"A heatmap-like visualization tool
+","A data visualization design that provides comparison between  two (Double) data sources (usually on a par with each other) on one  reformed heatmap, while inheriting 'ggplot2' features.  
+"
+nflplotR,images/nflplotR.png,https://nflplotr.nflverse.com,nflverse,nflplotR,"general,scales,geoms,images,theme,elements",TRUE,mrcaseb,"'nflplotR' provides a set of functions to visualize National Football League analysis in 'ggplot2'.
+","The goal of 'nflplotR' is to provide functions and geoms that help  visualization of images and NFL related analysis. It provides 'ggplot2'  geoms and theme elements that do the heavy lifting of plotting images in  high quality, with correct aspect ratio and other image modification functions.
+"
+ggbraid,images/ggbraid.png,https://nsgrantham.github.io/ggbraid,nsgrantham,ggbraid,"visualization,general,geoms",FALSE,nsgrantham,"Braid ribbons in `ggplot2`.
+","ggbraid provides a new stat, `stat_braid()`, that extends the functionality of `geom_ribbon()` to correctly fill the area between two alternating lines (or steps) with two different colors. ggbraid also provides a geom, `geom_braid()`, that wraps `geom_ribbon()` and uses `stat_braid()` by default.
+"
+ggblanket,images/ggblanket.png,https://davidhodge931.github.io/ggblanket/articles/ggblanket.html,davidhodge931,ggblanket,visualization,TRUE,davidhodge931,"Simplify ggplot2 visualisation
+","Simplify ggplot2 visualisation with ggblanket wrapper functions.  
+"
+ggpie,images/ggpie.png,https://github.com/showteeth/ggpie,showteeth,ggpie,"visualization,general,pie,donut,rose pie",TRUE,showteeth,"Create pie and donut plot using `ggplot2`.
+","`ggpie` aims to create **pie (2D and 3D)**, **donut** and **rose pie** plot with the `ggplot2` plotting system  which implemented the grammar of graphics. It contains four main functions: 1. `ggpie`: Create 2D pie plot with single group variable. 2. `ggdonut`: Create 2D donut plot with single group variable. 3. `ggnestedpie`: Create 2D nested pie plot with two group variables. 4. `ggpie3D`: Create 3D pie plot with single group variable.  5. `ggrosepie`: Create rose pie plot with single or two group variables.
+"
+ggstar,images/ggstar.png,https://github.com/xiangpin/ggstar,xiangpin,ggstar,"visualization, different shape points",TRUE,xiangpin,"Multiple Geometric Shape Point Layer for 'ggplot2'
+","To create the multiple polygonal point layer for easily discernible shapes, we developed the package, it is like the 'geom_point' of 'ggplot2'.
+"
+ggarchery,images/ggarchery.png,https://github.com/mdhall272/ggarchery,mdhall272,ggarchery,"visualization, arrows",TRUE,mdhall272,"Flexible segment geoms with arrows for 'ggplot2'
+","Enhanced arrow segments for control of the position of the arrowhead on the line, multiple arrowheads, and shrinkage of segments to prevent arrows colliding with their 'targets' without alterations to coordinates
+"
+tidyterra,images/tidyterra.png,https://github.com/dieghernan/tidyterra,dieghernan,tidyterra,"visualization, raster, spatial",TRUE,dieghernan,"'ggplot2' geoms for  'terra' rasters and vectors
+","'geom_' functions that provide a convenient way of visualizing SpatRasters and SpatVectors generated with the 'terra' package.
+"
+ggseqplot,images/ggseqplot.png,https://maraab23.github.io/ggseqplot,maraab23,ggseqplot,"visualization,sequence analysis",TRUE,maraab23,"'ggseqplot' renders sequence plots using ggplot2.
+","'ggseqplot' provides a set of functions that reproduce some of the sequence plots from  'TraMineR::seqplot' and 'TraMineRextras' using 'ggplot2'. These plots are produced on  the basis of a sequence object defined with 'TraMineR::seqdef'. The package automates  the reshaping and plotting of sequence data. Resulting plots are of class ggplot, i.e.  components can be added and tweaked using '+' and regular ggplot2 functions.
+"
+ggsurvfit,images/ddsjoberg-ggsurvfit.png,https://www.danieldsjoberg.com/ggsurvfit/,pharmaverse,ggsurvfit,"visualization,survival,statistics",TRUE,ddsjoberg,"Flexible Time-to-Event Figures
+","Ease the creation of time-to-event (i.e. survival) endpoint figures. The modular functions create figures ready for publication. Each of the functions that add to or modify the figure are written as proper 'ggplot2' geoms or stat methods, allowing the functions from this package to be combined with any function or customization from 'ggplot2' and other 'ggplot2' extension packages.
+"
+ggsector,images/ggsector.png,https://github.com/yanpd01/ggsector,yanpd01,ggsector,"visualization, geoms, sector, fan",TRUE,yanpd01,"Create sector plots using `ggplot2`.
+","`ggsector` provides a new geom, `geom_sector()`, a grid-based layer function that conforms to the `ggplot2` layer syntax. `ggsector` mainly provides two sector drawing modes, one is to draw sectors based on `draw_panel` when `individual = FALSE`, and the other is to draw sectors based on `draw_group` when `individual = TRUE`.
+"
+ggterror,images/mivalek-ggterror.png,https://github.com/mivaek/ggterrorbar,mivalek,ggterrorbar,"visualization, geoms",FALSE,mivalek,"Create T-errorbars like in THAT paper
+","`ggterror` provides a new geom, `geom_terrorbar()` that swaps errorbars for the letter T just like they did in the now retracted legendary paper from July 2022 special issue of Hindawi's journal Advances in Materials Science and Engineering.
+"
+ggragged,images/mikmart-ggragged.png,https://mikmart.github.io/ggragged/,mikmart,ggragged,facets,TRUE,mikmart,"Facets for panel layouts with ragged edges
+","`ggragged` adds new facets to group panels in rows or columns of (potentially) varying widths, creating panel layouts with ragged edges.
+"
+ggmapinset,images/ggmapinset.png,https://cidm-ph.github.io/ggmapinset/,cidm-ph,ggmapinset,"visualization,spatial",TRUE,arcresu,"Add zoomed inset panels to your ggplot maps
+","Helper to add insets based on `geom_sf()` from 'ggplot2'. This package gives you a drop-in replacement for `geom_sf()` that supports adding a zoomed inset map without having to create and embed a separate plot.
+"
+ggmagnify,images/hughjonesd-ggmagnify.png,https://github.com/hughjonesd/ggmagnify,hughjonesd,ggmagnify,"visualization,geoms,inset,zoom,magnification",FALSE,hughjonesd,"Create a magnified inset of part of a ggplot object. 
+","ggmagnify creates a magnified inset of part of a ggplot object. Borders can be drawn around the target  area and the inset, along with projection lines from one to the other. The inset can have a drop shadow.  The magnified area can be a rectangle, an ellipse or an arbitrary shape. Maps, faceting and non-standard  scales are supported.
+"
+ggblend,images/mjskay-ggblend.png,https://mjskay.github.io/ggblend/,mjskay,ggblend,"visualization,blending,affine transformation,layer algebra,compositing",TRUE,mjskay,"Algebra of operations for blending, copying, adjusting, transforming, and compositing ggplot2 layers.
+","ggblend is a small algebra for manipulating ggplot2 layers (e.g., stats and geoms). It supports copying and adjusting the aesthetics or parameters of an existing layer, partitioning a layer into multiple pieces for re-composition, applying affine transformations to layers, and combining layers (or partitions of layers) using blend modes (including commutative blend modes, like multiply and darken). Blend mode support is particularly useful for creating plots with overlapping groups where the layer drawing order does not change the output.
+"
+ggflowchart,images/nrennie-ggflowchart.png,https://nrennie.github.io/ggflowchart/,nrennie,ggflowchart,"visualization,flowchart,network,diagram",TRUE,nrennie,"Create flowcharts using `ggplot2`.
+","Flowcharts can be a useful way to visualise complex processes. This package  uses the layered grammar of graphics of 'ggplot2' to create simple flowcharts.  It supports changing the outline and fill colour of nodes based on node  attributes, custom node labels, ability to add arrow labels, and tree-based  or user-specified layouts. It is compatible with 'ggplot2'  functions, and those from existing 'ggplot2' extension packages,  allowing extensive customisation.
+"
+ggrain,images/ggrain.png,https://github.com/njudd/ggrain,njudd,ggrain,"visualization, general",TRUE,njudd,"Raincloud geom for 'ggplot2'
+","Raincloud plots are a visualization tool which puts the raw data next to a box plot and a violin plot. This allows you to immediately visualize the full distribution of your data!  Our package offers the function ‘geom_rain()’ to make rainclouds, it can make multiple groups and connect observations over time.
+"
+ggoutlierscatterplot,images/ggoutlierscatterplot.png,https://github.com/lukastay/ggoutlierscatterplot,lukastay,ggoutlierscatterplot,"visualization,outlier,outliers,scatterplot,algorithms,algorithm,regression",FALSE,lukastay,"Visualize multidimensional outlier detection algorithms
+","Displays scatterplots that visualize outliers. Works with five multidimensional outlier detection algorithms. Higher degrees of abnormality are shown in larger, more red, and less transparent dots.
+"
+ggautothemes,images/ggautothemes.png,https://github.com/lukastay/ggautothemes/tree/master,lukastay,ggautothemes,"visualization,theme,themeing,color,fill,hue,ggthemes",FALSE,lukastay,"Quickly see how different themes will look on your ggplot visual.
+","Takes in a ggplot visual. Outputs a ""slideshow"" (sleep functions are used to allow time to look upon graphs) that unfolds in your plot pane in RStudio. High quality TIFF raster images can be outputted for professional use.
+"
+AMR,images/amr.png,https://msberends.github.io/AMR/,msberends,AMR,"visualization,epidemiology,color,fill",TRUE,msberends,"Plotting AMR results for SIR categories, MIC values, and disk diffusion diameters
+","Specialized for visualizing antimicrobial resistance data, it offers intuitive, it offers intuitive, customizable plots for SIR categorizations, MIC distributions, and disk diffusion data, simplifying complex microbiological analyses.
+"
+ichimoku,images/ichimoku.png,https://shikokuchuo.net/ichimoku/,shikokuchuo,ichimoku,"visualization,time-series,finance,trading,candlestick",TRUE,shikokuchuo,"Visualization and Tools for Ichimoku Kinko Hyo Strategies
+","An implementation of ‘Ichimoku Kinko Hyo’, also commonly known as ‘cloud charts’. As described in Sasaki (1996, ISBN:4925152009), the technique is a refinement on candlestick charting, originating from Japan and now in widespread use in technical analysis worldwide. Translating as ‘one-glance equilibrium chart’, it allows the price action and market structure of financial securities to be determined ‘at-a-glance’. 
+"
+eheat,images/eheat.png,https://github.com/Yunuuuu/eheat,Yunuuuu,eheat,"visualization,heatmap",FALSE,Yunuuuu,"Extended ComplexHeatmap with ggplot2
+","This package serves as a bridge between the ggplot2 and ComplexHeatmap packages.  Essentially, all ggplot2 geometries and operations can be utilized in ComplexHeatmap through the eheat package,  with the exception of facet operations (and you shouldn’t do it in eheat package). Fortunately, ComplexHeatmap is capable of handling these operations independently, rendering them unnecessary.
+"
+ggstats,images/ggstat.png,https://larmarange.github.io/ggstats/,larmarange,ggstats,"visualization,p-values,forest plot,geoms,positions,statistics,Likert",TRUE,larmarange,"Forest plots of model coefficients, Likert plots and custom proportions
+","This package provides new statistics, new geometries and new positions for 'ggplot2'  and a suite of functions to facilitate the creation of statistical plots such as forest plots of model coefficients, bar plots for Likert-type items, custom proportions or survey data.
+"
+ggfoundry,images/cgoo4-ggfoundry.png,https://cgoo4.github.io/ggfoundry/,cgoo4,ggfoundry,"visualization,geoms,color,fill,shapes",TRUE,cgoo4,"Shape Foundry & Geom for 'ggplot2'.
+","Hand-crafted colourable & fillable shapes.
+"
+ggalign,images/ggalign.png,https://yunuuuu.github.io/ggalign/,Yunuuuu,ggalign,"visualization,composition,heatmap",TRUE,Yunuuuu,"A 'ggplot2' Extension for Consistent Axis Alignment
+","A 'ggplot2' extension offers various tools the creation of complex, multi-plot visualizations. Built on the familiar grammar of graphics, it provides intuitive tools to align and organize plots, making it ideal for complex visualizations. It excels in multi-omics research—such as genomics and microbiomes—by simplifying the visualization of intricate relationships between datasets, for example, linking genes to pathways. Whether you need to stack plots, arrange them around a central figure, or use a circular layout, 'ggalign' delivers flexibility and accuracy with minimal effort.
+"
+ggreveal,images/ggreveal.png,https://weverthon.com/ggreveal/,weverthonmachado,ggreveal,"visualization,presentation,slides",TRUE,weverthonmachado,"Reveal a 'ggplot' Incrementally
+","Provides functions that make it easy to reveal 'ggplot2' graphs incrementally. The functions take a plot produced with 'ggplot2' and return a list of plots showing data incrementally by panels, layers, groups, the values in an axis or any arbitrary aesthetic.
+"
+geofacet,images/geofacet_us_unemp.png,https://hafen.github.io/geofacet/,hafen,geofacet,"visualization,facet,facets,geo,geography,composition",TRUE,hafen,"Easy faceting according to geographic position
+","This R package provides geofaceting functionality for ggplot2. Geofaceting arranges a sequence of plots of data for different geographical entities into a grid that strives to preserve some of the original geographical orientation of the entities.
+"
+tidyplots,images/tidyplots.png,https://tidyplots.org,jbengler,tidyplots,"visualization,general,theme,color,statistics",TRUE,jbengler,"Tidy plots for scientific papers
+","The goal of tidyplots is to streamline the creation of publication-ready plots for scientific papers. It allows to gradually add, remove and adjust plot components using a consistent and intuitive syntax.
+"
+rphylopic,images/rphylopic.png,https://rphylopic.palaeoverse.org/,palaeoverse,rphylopic,"visualization,silhouettes,images,biology",TRUE,willgearty,"Get and use silhouettes of organisms from PhyloPic
+","Work with the PhyloPic Web Service (<http://api-docs.phylopic.org/v2/>) to fetch silhouette images of organisms. Includes functions for adding silhouettes to both base R plots and ggplot2 plots.
+"
+deeptime,images/deeptime.png,https://williamgearty.com/deeptime,willgearty,deeptime,"visualization,earth sciences,phylogenetics,pattern,color,time-series",TRUE,willgearty,"Plotting tools for anyone working in deep time
+","The primary goal of deeptime is to enable users to add highly customizable timescales to their visualizations. Other functions are also included to assist with other areas of deep time visualization.
+"
+ggpcp,images/ggpcp.png,https://github.com/heike/ggpcp,heike,ggpcp,"visualization,parallel coordinate plot,multivariate, categorical",TRUE,heike,"Generalized Parallel Coordinate Plots in ggplot2
+","Parallel coordinate plots (PCP) are good for visualizing observations across multiple dimensions by placing variables side-by-side and connecting values from the same observation with a line segment. Generalized Parallel Coordinate Plots can also seamlessly deal with  a mix of categorical and numeric variables in a single plot.
+"
+ggvolcano,images/ggvolcano.png,https://cran.r-project.org/web/packages/ggvolcano/index.html,YaoxiangLi,ggvolcano,"visualization,volcano_plot,differential_expression",TRUE,Yaoxiang Li,"Provides tools for creating publication-ready volcano plots.
+","`ggvolcano` offers Provides publication-ready volcano plots for visualizing differential expression results,  commonly used in RNA-seq and similar analyses. This tool helps create high-quality visual representations  of data using the 'ggplot2' framework Wickham (2016) <doi:10.1007/978-3-319-24277-4>.
+"
+ggfootball,images/ggfootball.png,https://aymennasri.me/ggfootball,aymennasri,ggfootball,"general,football,interactive,visualization",TRUE,aymennasri,"'Plotting Football matches Expected Goals (xG) Stats with 'Understat' Data'.
+","Scrapes footbal match shots data from 'Understat' <https://understat.com/> and visualizes it using interactive plots: - A detailed shot map displaying the location, type, and xG value of shots taken by both teams. - An xG timeline chart showing the cumulative xG for each team over time, annotated with the details of scored goals.
+"
