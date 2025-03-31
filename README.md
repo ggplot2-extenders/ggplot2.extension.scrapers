@@ -14,15 +14,18 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-1.  [gg_w_ggplot2_depends_or_imports_cran.csv](https://evamaerey.github.io/mytidytuesday/gg_w_ggplot2_depends_or_imports_cran.csv)
-    **[source](https://github.com/evamaerey/mytidytuesday/blob/master/gg_w_ggplot2_depends_or_imports_cran.csv.csv)**
-2.  [gg_extension_pkgs_gallery.csv](https://evamaerey.github.io/mytidytuesday/gg_extension_pkgs_gallery.csv)
-    **[source](https://github.com/evamaerey/mytidytuesday/blob/master/gg_extension_pkgs_gallery.csv.csv)**
+1.  [universe_ggplot2_depends_function_exports.csv](https://evamaerey.github.io/mytidytuesday/universe_ggplot2_depends_function_exports.csv)
+    **[source](https://github.com/evamaerey/mytidytuesday/blob/main/universe_ggplot2_depends_function_exports.csv.csv)**
+2.  [gg_w_ggplot2_depends_or_imports_cran.csv](https://evamaerey.github.io/mytidytuesday/gg_w_ggplot2_depends_or_imports_cran.csv)
+    **[source](https://github.com/evamaerey/mytidytuesday/blob/main/gg_w_ggplot2_depends_or_imports_cran.csv.csv)**
+3.  [gg_extension_pkgs_gallery.csv](https://evamaerey.github.io/mytidytuesday/gg_extension_pkgs_gallery.csv)
+    **[source](https://github.com/evamaerey/mytidytuesday/blob/main/gg_extension_pkgs_gallery.csv.csv)**
 
 The repo contains code to characterize the ggplot2 extension ecosystem.
 A couple of projects motivate this:
 
-- CRAN task views grammar of graphics (or ggplot2 extension)
+- [CRAN task views grammar of graphics (or ggplot2
+  extension)](https://github.com/ggplot2-extenders/ggplot-extension-club/discussions/82)
 - JSM ’Who are the ggplot2 extenders
 
 # 1. `tools::CRAN_package_db` that are `^gg|^GG|gg$|GG$` w/ ggplot2 depend or import
@@ -250,9 +253,11 @@ Teun
 <https://github.com/ggplot2-extenders/ggplot-extension-club/discussions/82#discussioncomment-12479880>
 
 ``` r
+# install.packages("universe", repos = "https://ropensci.r-universe.dev")
+
 # I'm aware there should be ~7k/8k packages with ggplot2 as dependency.
 packages <- universe::global_search(query = 'needs:ggplot2', limit = 10000L)
-out_file <- here::here("data", "function_exports.csv")
+out_file <- "universe_ggplot2_depends_function_exports.csv"
 
 # Ensure I have a 'data' folder with the file I'll need
 if (!fs::file_exists(out_file)) {
@@ -295,6 +300,45 @@ data <- lapply(packages$results, function(result) {
     # effectively caching every result
     data.table::fwrite(df, out_file, append = TRUE)
 })
+
+
+library(dplyr)
+library(ggplot2)
+library(scales)
+
+file <- "universe_ggplot2_depends_function_exports.csv"
+
+data <- data.table::fread(file) |>
+    filter(nzchar(export)) |>
+    filter(!startsWith(name, "RcmdrPlugin")) |>
+    mutate(class = case_when(
+        startsWith(export, "geom_")     ~ "geom",
+        startsWith(export, "stat_")     ~ "stat",
+        startsWith(export, "scale_")    ~ "scale",
+        startsWith(export, "coord_")    ~ "coord",
+        startsWith(export, "facet_")    ~ "facet",
+        startsWith(export, "guide_")    ~ "guide",
+        startsWith(export, "position_") ~ "position",
+        startsWith(export, "draw_key_") ~ "key",
+        startsWith(export, "element_")  ~ "element",
+        startsWith(export, "theme_")    ~ "theme",
+        startsWith(export, "Geom")      ~ "Geom class",
+        startsWith(export, "Stat")      ~ "Stat class",
+        startsWith(export, "Scale")     ~ "Scale class",
+        startsWith(export, "Coord")     ~ "Coord class",
+        startsWith(export, "Facet")     ~ "Facet class",
+        startsWith(export, "Guide")     ~ "Guide class",
+        startsWith(export, "Position")  ~ "Position class",
+        .default = ""
+    )) |>
+    mutate(pattern = case_when(
+        startsWith(name, "gg")   ~ "gg-prefix",
+        startsWith(name, "tidy") ~ "tidy-prefix",
+        endsWith(name, "themes") ~ "themes-suffix",
+        .default = ""
+    ))
+
+write.csv(gg_pkgs_data.df, file = "gg-pkgs-data.csv")
 ```
 
 # 5. `pkgdiff` to look at patterns also?
@@ -396,6 +440,4 @@ stability.df |> tibble::tibble()
 functions.df |> tibble::tibble()
 
 gg_pkgs_data.df <- full_join(stability.df, functions.df)
-
-write.csv(gg_pkgs_data.df, file = "gg-pkgs-data.csv")
 ```
