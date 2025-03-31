@@ -14,19 +14,17 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-1.  [universe_ggplot2_depends_function_exports.csv](https://evamaerey.github.io/mytidytuesday/universe_ggplot2_depends_function_exports.csv)
-    **[source](https://github.com/evamaerey/mytidytuesday/blob/main/universe_ggplot2_depends_function_exports.csv.csv)**
-2.  [gg_w_ggplot2_depends_or_imports_cran.csv](https://evamaerey.github.io/mytidytuesday/gg_w_ggplot2_depends_or_imports_cran.csv)
-    **[source](https://github.com/evamaerey/mytidytuesday/blob/main/gg_w_ggplot2_depends_or_imports_cran.csv.csv)**
-3.  [gg_extension_pkgs_gallery.csv](https://evamaerey.github.io/mytidytuesday/gg_extension_pkgs_gallery.csv)
-    **[source](https://github.com/evamaerey/mytidytuesday/blob/main/gg_extension_pkgs_gallery.csv.csv)**
+1.  [universe_ggplot2_depends_function_exports.csv](https://raw.githubusercontent.com/ggplot2-extenders/ggplot2-extension-scrapers/refs/heads/main/universe_ggplot2_depends_function_exports.csv)
+2.  [gg_w_ggplot2_depends_or_imports_cran.csv](https://raw.githubusercontent.com/ggplot2-extenders/ggplot2-extension-scrapers/refs/heads/main/gg_w_ggplot2_depends_or_imports_cran.csv)
+3.  [gg_extension_pkgs_gallery.csv](https://raw.githubusercontent.com/ggplot2-extenders/ggplot2-extension-scrapers/refs/heads/main/gg_extension_pkgs_gallery.csv)
 
 The repo contains code to characterize the ggplot2 extension ecosystem.
 A couple of projects motivate this:
 
 - [CRAN task views grammar of graphics (or ggplot2
   extension)](https://github.com/ggplot2-extenders/ggplot-extension-club/discussions/82)
-- JSM ’Who are the ggplot2 extenders
+- [JSM ‘Who are the ggplot2
+  extenders’](https://evamaerey.github.io/ggplot2-extension-ecosystem/)
 
 # 1. `tools::CRAN_package_db` that are `^gg|^GG|gg$|GG$` w/ ggplot2 depend or import
 

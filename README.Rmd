@@ -32,17 +32,15 @@ webpages %>%
   paste0("a. [",
          . ,
          "]",
-         "(https://evamaerey.github.io/mytidytuesday/", ., 
-         ") **[source](https://github.com/evamaerey/mytidytuesday/blob/main/",
-         file_name_wo_extension,".csv",
-         ")**\n") %>% 
+         "(https://raw.githubusercontent.com/ggplot2-extenders/ggplot2-extension-scrapers/refs/heads/main/", ., 
+         ")\n") %>% 
   cat()     
 ```
 
 The repo contains code to characterize the ggplot2 extension ecosystem.  A couple of projects motivate this:
 
 - [CRAN task views grammar of graphics (or ggplot2 extension)](https://github.com/ggplot2-extenders/ggplot-extension-club/discussions/82)
-- JSM 'Who are the ggplot2 extenders
+- [JSM 'Who are the ggplot2 extenders'](https://evamaerey.github.io/ggplot2-extension-ecosystem/)
  
 
 
