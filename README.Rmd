@@ -40,14 +40,12 @@ webpages %>%
 The repo contains code to characterize the ggplot2 extension ecosystem.  A couple of projects motivate this:
 
 - [CRAN task views grammar of graphics (or ggplot2 extension)](https://github.com/ggplot2-extenders/ggplot-extension-club/discussions/82)
-- [JSM 'Who are the ggplot2 extenders'](https://evamaerey.github.io/ggplot2-extension-ecosystem/)
+- [JSM 'Who are the ggplot2 extenders?'](https://evamaerey.github.io/ggplot2-extension-ecosystem/)
  
 
-
-
-
- 
- 
+```{r, eval = F}
+devtools::create(".")
+```
 
 
 
@@ -58,18 +56,22 @@ Code/ideas: June, Joyce, Pepijn, Gina
 
   
 ```{r}
-df <- tools::CRAN_package_db() |> 
+cran_gg_w_ggplot2_depends_or_imports <- tools::CRAN_package_db() |> 
   dplyr::filter(
     stringr::str_detect(Package, "^gg|^GG|gg$|GG$"),
     stringr::str_detect(Depends, "ggplot2") | 
     stringr::str_detect(Imports, "ggplot2")
-  ) 
+  ) |>
+  janitor::clean_names()
 
-df |> tibble::tibble()
+cran_gg_w_ggplot2_depends_or_imports |> tibble::tibble()
+names(cran_gg_w_ggplot2_depends_or_imports)
 
-df$Package
 
-readr::write_csv(df, "gg_w_ggplot2_depends_or_imports_cran.csv")
+usethis::use_data(cran_gg_w_ggplot2_depends_or_imports, overwrite = T)
+
+
+
 ```  
 
 
@@ -80,22 +82,32 @@ Code/ideas: Pepijn, Joyce, Gina, (Probably others)
 
 
 ```{r}
-df <-
+gg_gallery_pkgs <-
   "https://raw.githubusercontent.com/ggplot2-exts/gallery/refs/heads/gh-pages/_config.yml" |>
   httr2::request() |>
   httr2::req_perform() |>
   httr2::resp_body_string() |>
   (\(x) yaml::read_yaml(text = x))() |>
   _$widgets |>
-  dplyr::bind_rows()
+  dplyr::bind_rows() |>
+  dplyr::rename(package = name)
 
-df$name
+gg_gallery_pkgs |> tibble::tibble()
 
-df
-
-readr::write_csv(df, "gg_extension_pkgs_gallery.csv")
+usethis::use_data(gg_gallery_pkgs, overwrite = T)
 
 
+
+```
+
+```{r}
+devtools::check()
+devtools::install(".", upgrade = "never")
+```
+
+```{r}
+library(ggplot2.extension.scrapers)
+ggplot2.extension.scrapers::cran_gg_w_ggplot2_depends_or_imports 
 ```
 
 
@@ -108,7 +120,7 @@ Code/ideas: Carl Suster @arcresu
 https://github.com/ggplot2-extenders/ggplot-extension-club/discussions/82#discussioncomment-12469510
 
 ```{r}
-gh_contributors <- function(repo) {
+gh_contributors <- function(repo = "cidm-ph/ggmapinset") {
   resp <- gh::gh("GET /repos/{repo}/contributors", repo = repo)
   total_contributions <- sum(sapply(resp, \(x) x$contributions))
   resp <- Filter(\(x) x$type == "User", resp) # exclude bots
@@ -118,6 +130,8 @@ gh_contributors <- function(repo) {
 
 gh_contributors("cidm-ph/ggmapinset")
 gh_contributors("YuLab-SMU/ggfun")
+gh_contributors("tidyverse/ggplot2")
+gh_contributors("AllanCameron/geomtextpath")
 
 ```
 
@@ -214,7 +228,10 @@ data <- data.table::fread(file) |>
 		.default = ""
 	))
 
-write.csv(gg_pkgs_data.df, file = "gg-pkgs-data.csv")
+
+universe_gg_depends_function_exports <- readr::read_csv("universe_ggplot2_depends_function_exports.csv")
+
+usethis::use_data()
 
 ```
 
