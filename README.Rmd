@@ -50,36 +50,12 @@ devtools::create(".")
 
 
 
-# 1. `tools::CRAN_package_db` that are `^gg|^GG|gg$|GG$` w/ ggplot2 depend or import
-
-Code/ideas: June, Joyce, Pepijn, Gina 
-
-  
-```{r}
-cran_gg_w_ggplot2_depends_or_imports <- tools::CRAN_package_db() |> 
-  dplyr::filter(
-    stringr::str_detect(Package, "^gg|^GG|gg$|GG$"),
-    stringr::str_detect(Depends, "ggplot2") | 
-    stringr::str_detect(Imports, "ggplot2")
-  ) |>
-  janitor::clean_names()
-
-cran_gg_w_ggplot2_depends_or_imports |> tibble::tibble()
-names(cran_gg_w_ggplot2_depends_or_imports)
-
-
-usethis::use_data(cran_gg_w_ggplot2_depends_or_imports, overwrite = T)
 
 
 
-```  
-
-
-# 2. `yaml::read_yaml` and `httr2` to parse extension gallery `gallery _config.yml` file
+# 2. `yaml::read_yaml` and `httr2` to parse extension gallery `gallery _config.yml` file 148 packages
 
 Code/ideas: Pepijn, Joyce, Gina, (Probably others)
-
-
 
 ```{r}
 gg_gallery_pkgs <-
@@ -93,21 +69,83 @@ gg_gallery_pkgs <-
   dplyr::rename(package = name)
 
 gg_gallery_pkgs |> tibble::tibble()
+gg_gallery_pkgs$package
 
 usethis::use_data(gg_gallery_pkgs, overwrite = T)
 
+```
+
+# 1. `tools::CRAN_package_db` that are `^gg|^GG|gg$|GG$` or found in gallery w/ ggplot2 depend or import (242 packages)
+
+Code/ideas: June, Joyce, Pepijn, Gina 
+
+  
+```{r}
+cran_gg_w_ggplot2_depends_or_imports <- tools::CRAN_package_db() |> 
+  dplyr::filter(
+    stringr::str_detect(Package, "^gg|^GG|gg$|GG$") | 
+      Package %in% gg_gallery_pkgs$package,
+    stringr::str_detect(Depends, "ggplot2") | 
+      stringr::str_detect(Imports, "ggplot2")
+  ) |>
+  dplyr::mutate(ind_gallery = Package %in% gg_gallery_pkgs$package) |>
+  janitor::clean_names()
+
+cran_gg_w_ggplot2_depends_or_imports |> tibble::tibble() 
+names(cran_gg_w_ggplot2_depends_or_imports) 
+cran_gg_w_ggplot2_depends_or_imports$package |> sort()
+
+usethis::use_data(cran_gg_w_ggplot2_depends_or_imports, overwrite = T)
 
 
+
+```  
+
+```{r}
+# devtools::check()
+# devtools::install(".", upgrade = "never")
 ```
 
 ```{r}
-devtools::check()
-devtools::install(".", upgrade = "never")
+knitr::opts_chunk$set(eval= F)
+
 ```
 
-```{r}
+
+```{r, fig.width=15, fig.height=15, eval = F, include=F}
+library(tidyverse)
 library(ggplot2.extension.scrapers)
-ggplot2.extension.scrapers::cran_gg_w_ggplot2_depends_or_imports 
+library(ggraph)
+
+df <- cran_gg_w_ggplot2_depends_or_imports
+
+cran_gg_w_ggplot2_depends_or_imports |> 
+  mutate(author = str_split(author, pattern = "\\n")) |>
+  unnest(author) |>
+  select(author, package) |>
+  mutate(author = str_remove(author, "\\[.+")) |>
+  mutate(author = str_trim(author)) |>
+  filter(!(author |> str_detect("orcid"))) ->
+package_authors_edge_list
+
+package_authors_edge_list |>
+  tidygraph::as_tbl_graph() |>
+  ggraph(layout = "kk") +
+  geom_node_text(aes(label = name, color = name %in% cran_gg_w_ggplot2_depends_or_imports$package)) + 
+  geom_edge_link(alpha = .2)
+  
+library(ggram)
+
+package_authors_edge_list |>
+  mutate(num_authorships = n(), .by = author) |>
+  filter(num_authorships > 1) |>
+  tidygraph::as_tbl_graph() |>
+  ggraph(layout = "fr") +
+  geom_node_label(aes(label = name, 
+                  color = name %in% package_authors$author)) + 
+  geom_edge_link(alpha = .2) + 
+  theme(legend.position)
+  
 ```
 
 

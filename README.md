@@ -1,10 +1,10 @@
 
-- [1. `tools::CRAN_package_db` that are `^gg|^GG|gg$|GG$` w/ ggplot2
-  depend or
-  import](#1-toolscran_package_db-that-are-gggggggg-w-ggplot2-depend-or-import)
 - [2. `yaml::read_yaml` and `httr2` to parse extension gallery
-  `gallery _config.yml`
-  file](#2-yamlread_yaml-and-httr2-to-parse-extension-gallery-gallery-_configyml-file)
+  `gallery _config.yml` file 148
+  packages](#2-yamlread_yaml-and-httr2-to-parse-extension-gallery-gallery-_configyml-file-148-packages)
+- [1. `tools::CRAN_package_db` that are `^gg|^GG|gg$|GG$` or found in
+  gallery w/ ggplot2 depend or import (242
+  packages)](#1-toolscran_package_db-that-are-gggggggg-or-found-in-gallery-w-ggplot2-depend-or-import-242-packages)
 - [3. `gh::gh` Keep in mind in terms: github
   contributors](#3-ghgh-keep-in-mind-in-terms-github-contributors)
 - [4. `universe::global_search` with exported function pattern
@@ -24,134 +24,43 @@ A couple of projects motivate this:
 - [CRAN task views grammar of graphics (or ggplot2
   extension)](https://github.com/ggplot2-extenders/ggplot-extension-club/discussions/82)
 - [JSM ‘Who are the ggplot2
-  extenders’](https://evamaerey.github.io/ggplot2-extension-ecosystem/)
-
-# 1. `tools::CRAN_package_db` that are `^gg|^GG|gg$|GG$` w/ ggplot2 depend or import
-
-Code/ideas: June, Joyce, Pepijn, Gina
+  extenders?’](https://evamaerey.github.io/ggplot2-extension-ecosystem/)
 
 ``` r
-df <- tools::CRAN_package_db() |> 
-  dplyr::filter(
-    stringr::str_detect(Package, "^gg|^GG|gg$|GG$"),
-    stringr::str_detect(Depends, "ggplot2") | 
-    stringr::str_detect(Imports, "ggplot2")
-  ) 
-
-df |> tibble::tibble()
-#> # A tibble: 215 × 69
-#>    Package  Version Priority Depends Imports LinkingTo Suggests Enhances License
-#>    <chr>    <chr>   <chr>    <chr>   <chr>   <chr>     <chr>    <chr>    <chr>  
-#>  1 egg      0.4.5   <NA>     gridEx… "gtabl… <NA>      "knitr,… <NA>     GPL-3  
-#>  2 gg.gap   1.3     <NA>     <NA>    "ggplo… <NA>       <NA>    <NA>     GPL-3  
-#>  3 gg1d     0.1.0   <NA>     R (>= … "asser… <NA>      "covr, … <NA>     MIT + …
-#>  4 ggalign  1.0.0   <NA>     ggplot… "cli, … <NA>      "ggrast… <NA>     MIT + …
-#>  5 ggalign… 0.1     <NA>     <NA>    "ggplo… <NA>       <NA>    <NA>     GPL-3  
-#>  6 ggalign… 1.0.2   <NA>     R (>= … "dplyr… <NA>      "rmarkd… <NA>     MIT + …
-#>  7 ggallin  0.1.1   <NA>     ggplot… "scale… <NA>      "knitr,… <NA>     LGPL-3 
-#>  8 ggalluv… 0.12.5  <NA>     R (>= … "stats… <NA>      "grid, … <NA>     GPL-3  
-#>  9 GGally   2.2.1   <NA>     R (>= … "dplyr… <NA>      "broom … <NA>     GPL (>…
-#> 10 ggalt    0.4.0   <NA>     R (>= … "utils… <NA>      "testth… <NA>     AGPL +…
-#> # ℹ 205 more rows
-#> # ℹ 60 more variables: License_is_FOSS <chr>, License_restricts_use <chr>,
-#> #   OS_type <chr>, Archs <chr>, MD5sum <chr>, NeedsCompilation <chr>,
-#> #   Additional_repositories <chr>, Author <chr>, `Authors@R` <chr>,
-#> #   Biarch <chr>, BugReports <chr>, BuildKeepEmpty <chr>, BuildManual <chr>,
-#> #   BuildResaveData <chr>, BuildVignettes <chr>, Built <chr>,
-#> #   ByteCompile <chr>, `Classification/ACM` <chr>, …
-
-df$Package
-#>   [1] "egg"               "gg.gap"            "gg1d"             
-#>   [4] "ggalign"           "ggaligner"         "ggalignment"      
-#>   [7] "ggallin"           "ggalluvial"        "GGally"           
-#>  [10] "ggalt"             "gganimate"         "ggarchery"        
-#>  [13] "ggarrow"           "ggautomap"         "ggbeeswarm"       
-#>  [16] "ggbiplot"          "ggblanket"         "ggblend"          
-#>  [19] "ggborderline"      "ggbrace"           "ggbrain"          
-#>  [22] "ggbreak"           "ggbrick"           "ggBubbles"        
-#>  [25] "ggbuildr"          "ggbump"            "ggchangepoint"    
-#>  [28] "ggcharts"          "ggChernoff"        "ggcleveland"      
-#>  [31] "ggcompare"         "ggcorrplot"        "ggcorset"         
-#>  [34] "ggdag"             "ggdark"            "ggdaynight"       
-#>  [37] "ggdemetra"         "ggdendro"          "ggdensity"        
-#>  [40] "ggdist"            "ggdmc"             "ggDoE"            
-#>  [43] "ggDoubleHeat"      "ggeasy"            "GGEBiplots"       
-#>  [46] "ggedit"            "ggenealogy"        "ggESDA"           
-#>  [49] "ggetho"            "ggExtra"           "ggfacto"          
-#>  [52] "ggfields"          "ggfigdone"         "ggFishPlots"      
-#>  [55] "ggfittext"         "ggfixest"          "ggflowchart"      
-#>  [58] "ggfocus"           "ggfootball"        "ggforce"          
-#>  [61] "ggformula"         "ggfortify"         "ggfoundry"        
-#>  [64] "ggfun"             "ggfx"              "gggap"            
-#>  [67] "gggenes"           "gggenomes"         "ggghost"          
-#>  [70] "gggibbous"         "gggrid"            "ggh4x"            
-#>  [73] "gghalfnorm"        "gghalves"          "gghdx"            
-#>  [76] "ggheatmap"         "gghighlight"       "gghilbertstrings" 
-#>  [79] "gghist"            "ggHoriPlot"        "gghourglass"      
-#>  [82] "ggimage"           "ggimg"             "gginference"      
-#>  [85] "gginnards"         "ggip"              "ggiraph"          
-#>  [88] "ggiraphExtra"      "ggisotonic"        "gglgbtq"          
-#>  [91] "gglm"              "gglogger"          "gglorenz"         
-#>  [94] "ggmap"             "ggmapcn"           "ggmapinset"       
-#>  [97] "ggmatplot"         "ggmcmc"            "ggmice"           
-#> [100] "GGMncv"            "GGMnonreg"         "ggmosaic"         
-#> [103] "ggmugs"            "ggmuller"          "ggmulti"          
-#> [106] "ggnetwork"         "ggnewscale"        "ggnormalviolin"   
-#> [109] "ggnuplot"          "ggOceanMaps"       "ggokabeito"       
-#> [112] "ggordiplots"       "GGoutlieR"         "ggpackets"        
-#> [115] "ggpage"            "ggparallel"        "ggparty"          
-#> [118] "ggpath"            "ggpattern"         "ggpca"            
-#> [121] "ggpcp"             "ggperiodic"        "ggpie"            
-#> [124] "ggplate"           "ggplot.multistats" "ggplot2.utils"    
-#> [127] "ggplotAssist"      "ggplotgui"         "ggplotify"        
-#> [130] "ggpmisc"           "ggPMX"             "ggpointdensity"   
-#> [133] "ggpointless"       "ggpol"             "ggpolar"          
-#> [136] "ggpolypath"        "ggpp"              "ggprism"          
-#> [139] "ggpubr"            "ggpval"            "ggQC"             
-#> [142] "ggQQunif"          "ggquickeda"        "ggquiver"         
-#> [145] "ggragged"          "ggrain"            "ggRandomForests"  
-#> [148] "ggraph"            "ggraptR"           "ggrasp"           
-#> [151] "ggrastr"           "ggrcs"             "ggredist"         
-#> [154] "ggrepel"           "ggResidpanel"      "ggreveal"         
-#> [157] "ggridges"          "ggrisk"            "ggrounded"        
-#> [160] "ggRtsy"            "ggsankeyfier"      "ggScatRidges"     
-#> [163] "ggsci"             "ggscidca"          "ggseas"           
-#> [166] "ggsector"          "ggseg"             "ggsem"            
-#> [169] "ggseqlogo"         "ggseqplot"         "ggshadow"         
-#> [172] "ggside"            "ggsignif"          "ggsmc"            
-#> [175] "ggsoccer"          "ggsolvencyii"      "ggsom"            
-#> [178] "ggspark"           "ggspatial"         "ggspectra"        
-#> [181] "ggstackplot"       "ggstance"          "ggstar"           
-#> [184] "ggstats"           "ggstatsplot"       "ggstream"         
-#> [187] "ggstudent"         "ggsurveillance"    "ggsurvey"         
-#> [190] "ggsurvfit"         "ggswissmaps"       "ggtangle"         
-#> [193] "ggtaxplot"         "ggtea"             "ggtern"           
-#> [196] "ggtext"            "ggThemeAssist"     "ggthemes"         
-#> [199] "ggthemeUL"         "ggtibble"          "ggtikz"           
-#> [202] "ggTimeSeries"      "ggtrace"           "ggtrendline"      
-#> [205] "ggtricks"          "ggupset"           "ggvenn"           
-#> [208] "ggVennDiagram"     "ggvfields"         "ggview"           
-#> [211] "ggvolcano"         "ggwordcloud"       "ggx"              
-#> [214] "granovaGG"         "tablesgg"
-
-readr::write_csv(df, "gg_w_ggplot2_depends_or_imports_cran.csv")
+devtools::create(".")
 ```
 
-# 2. `yaml::read_yaml` and `httr2` to parse extension gallery `gallery _config.yml` file
+# 2. `yaml::read_yaml` and `httr2` to parse extension gallery `gallery _config.yml` file 148 packages
 
 Code/ideas: Pepijn, Joyce, Gina, (Probably others)
 
 ``` r
-df <-
+gg_gallery_pkgs <-
   "https://raw.githubusercontent.com/ggplot2-exts/gallery/refs/heads/gh-pages/_config.yml" |>
   httr2::request() |>
   httr2::req_perform() |>
   httr2::resp_body_string() |>
   (\(x) yaml::read_yaml(text = x))() |>
   _$widgets |>
-  dplyr::bind_rows()
+  dplyr::bind_rows() |>
+  dplyr::rename(package = name)
 
-df$name
+gg_gallery_pkgs |> tibble::tibble()
+#> # A tibble: 148 × 10
+#>    package  thumbnail url   ghuser ghrepo tags  cran  ghauthor short description
+#>    <chr>    <chr>     <chr> <chr>  <chr>  <chr> <lgl> <chr>    <chr> <chr>      
+#>  1 ggQQunif images/g… http… rcorty ggQQu… visu… TRUE  rcorty   "Mak… "For \"big…
+#>  2 ggupset  images/g… http… const… ggups… visu… TRUE  const-ae "Com… "Replace t…
+#>  3 xmrr     images/x… http… Zanid… xmrr   XmR,… TRUE  Alex Za… "Gen… "Use xmr()…
+#>  4 gg3D     images/g… http… Acker… gg3D   3D, … FALSE Daniel … "3D … "gg3D adds…
+#>  5 ggQC     images/g… http… kenit… ggQC   QC, … TRUE  Kenith … "Use… "ggQC is u…
+#>  6 ggdist   images/g… http… mjskay ggdist visu… TRUE  mjskay   "'gg… "'ggdist' …
+#>  7 ggedit   images/g… http… metru… ggedit visu… TRUE  yonicd   "gge… "ggedit is…
+#>  8 ggpage   images/g… http… emilh… ggpage visu… TRUE  emilhvi… "Cre… "Facilitat…
+#>  9 ggpca    images/g… http… Yaoxi… ggpca  visu… TRUE  Yaoxian… "Pro… "`ggpca` o…
+#> 10 ggbreak  images/g… http… YuLab… ggbre… visu… TRUE  YuLab-S… "Set… "An implem…
+#> # ℹ 138 more rows
+gg_gallery_pkgs$package
 #>   [1] "ggQQunif"             "ggupset"              "xmrr"                
 #>   [4] "gg3D"                 "ggQC"                 "ggdist"              
 #>   [7] "ggedit"               "ggpage"               "ggpca"               
@@ -200,25 +109,177 @@ df$name
 #> [136] "ggfoundry"            "ggalign"              "ggreveal"            
 #> [139] "geofacet"             "tidyplots"            "rphylopic"           
 #> [142] "deeptime"             "ggpcp"                "ggvolcano"           
-#> [145] "ggfootball"
+#> [145] "ggfootball"           "ggfields"             "ggsankeyfier"        
+#> [148] "ggpath"
 
-df
-#> # A tibble: 145 × 10
-#>    name     thumbnail url   ghuser ghrepo tags  cran  ghauthor short description
-#>    <chr>    <chr>     <chr> <chr>  <chr>  <chr> <lgl> <chr>    <chr> <chr>      
-#>  1 ggQQunif images/g… http… rcorty ggQQu… visu… TRUE  rcorty   "Mak… "For \"big…
-#>  2 ggupset  images/g… http… const… ggups… visu… TRUE  const-ae "Com… "Replace t…
-#>  3 xmrr     images/x… http… Zanid… xmrr   XmR,… TRUE  Alex Za… "Gen… "Use xmr()…
-#>  4 gg3D     images/g… http… Acker… gg3D   3D, … FALSE Daniel … "3D … "gg3D adds…
-#>  5 ggQC     images/g… http… kenit… ggQC   QC, … TRUE  Kenith … "Use… "ggQC is u…
-#>  6 ggdist   images/g… http… mjskay ggdist visu… TRUE  mjskay   "'gg… "'ggdist' …
-#>  7 ggedit   images/g… http… metru… ggedit visu… TRUE  yonicd   "gge… "ggedit is…
-#>  8 ggpage   images/g… http… emilh… ggpage visu… TRUE  emilhvi… "Cre… "Facilitat…
-#>  9 ggpca    images/g… http… Yaoxi… ggpca  visu… TRUE  Yaoxian… "Pro… "`ggpca` o…
-#> 10 ggbreak  images/g… http… YuLab… ggbre… visu… TRUE  YuLab-S… "Set… "An implem…
-#> # ℹ 135 more rows
+usethis::use_data(gg_gallery_pkgs, overwrite = T)
+```
 
-readr::write_csv(df, "gg_extension_pkgs_gallery.csv")
+# 1. `tools::CRAN_package_db` that are `^gg|^GG|gg$|GG$` or found in gallery w/ ggplot2 depend or import (242 packages)
+
+Code/ideas: June, Joyce, Pepijn, Gina
+
+``` r
+cran_gg_w_ggplot2_depends_or_imports <- tools::CRAN_package_db() |> 
+  dplyr::filter(
+    stringr::str_detect(Package, "^gg|^GG|gg$|GG$") | 
+      Package %in% gg_gallery_pkgs$package,
+    stringr::str_detect(Depends, "ggplot2") | 
+      stringr::str_detect(Imports, "ggplot2")
+  ) |>
+  dplyr::mutate(ind_gallery = Package %in% gg_gallery_pkgs$package) |>
+  janitor::clean_names()
+
+cran_gg_w_ggplot2_depends_or_imports |> tibble::tibble() 
+#> # A tibble: 243 × 70
+#>    package version priority depends imports linking_to suggests enhances license
+#>    <chr>   <chr>   <chr>    <chr>   <chr>   <chr>      <chr>    <chr>    <chr>  
+#>  1 autopl… 0.1.4   <NA>     R (>= … "metho… <NA>       "testth… <NA>     GPL-2  
+#>  2 calendR 1.2     <NA>     <NA>    "ggplo… <NA>        <NA>    <NA>     GPL-2  
+#>  3 Comple… 1.3.3   <NA>     <NA>    "ggplo… <NA>       "testth… <NA>     MIT + …
+#>  4 cowplot 1.1.3   <NA>     R (>= … "ggplo… <NA>       "Cairo,… <NA>     GPL-2  
+#>  5 deepti… 2.1.0   <NA>     R (>= … "deept… <NA>       "geomte… <NA>     GPL (>…
+#>  6 egg     0.4.5   <NA>     gridEx… "gtabl… <NA>       "knitr,… <NA>     GPL-3  
+#>  7 esquis… 2.1.0   <NA>     <NA>    "bslib… <NA>       "office… <NA>     GPL-3 …
+#>  8 geofac… 0.2.1   <NA>     R (>= … "ggplo… <NA>       "sf, te… <NA>     MIT + …
+#>  9 geomte… 0.1.5   <NA>     ggplot… "grid,… <NA>       "testth… <NA>     MIT + …
+#> 10 gg.gap  1.3     <NA>     <NA>    "ggplo… <NA>        <NA>    <NA>     GPL-3  
+#> # ℹ 233 more rows
+#> # ℹ 61 more variables: license_is_foss <chr>, license_restricts_use <chr>,
+#> #   os_type <chr>, archs <chr>, md5sum <chr>, needs_compilation <chr>,
+#> #   additional_repositories <chr>, author <chr>, authors_r <chr>, biarch <chr>,
+#> #   bug_reports <chr>, build_keep_empty <chr>, build_manual <chr>,
+#> #   build_resave_data <chr>, build_vignettes <chr>, built <chr>,
+#> #   byte_compile <chr>, classification_acm <chr>, …
+names(cran_gg_w_ggplot2_depends_or_imports) 
+#>  [1] "package"                 "version"                
+#>  [3] "priority"                "depends"                
+#>  [5] "imports"                 "linking_to"             
+#>  [7] "suggests"                "enhances"               
+#>  [9] "license"                 "license_is_foss"        
+#> [11] "license_restricts_use"   "os_type"                
+#> [13] "archs"                   "md5sum"                 
+#> [15] "needs_compilation"       "additional_repositories"
+#> [17] "author"                  "authors_r"              
+#> [19] "biarch"                  "bug_reports"            
+#> [21] "build_keep_empty"        "build_manual"           
+#> [23] "build_resave_data"       "build_vignettes"        
+#> [25] "built"                   "byte_compile"           
+#> [27] "classification_acm"      "classification_acm_2012"
+#> [29] "classification_jel"      "classification_msc"     
+#> [31] "classification_msc_2010" "collate"                
+#> [33] "collate_unix"            "collate_windows"        
+#> [35] "contact"                 "copyright"              
+#> [37] "date"                    "date_publication"       
+#> [39] "description"             "encoding"               
+#> [41] "keep_source"             "language"               
+#> [43] "lazy_data"               "lazy_data_compression"  
+#> [45] "lazy_load"               "mailing_list"           
+#> [47] "maintainer"              "note"                   
+#> [49] "packaged"                "rd_macros"              
+#> [51] "staged_install"          "sys_data_compression"   
+#> [53] "system_requirements"     "title"                  
+#> [55] "type"                    "url"                    
+#> [57] "use_lto"                 "vignette_builder"       
+#> [59] "zip_data"                "path"                   
+#> [61] "x_cran_comment"          "published"              
+#> [63] "reverse_depends"         "reverse_imports"        
+#> [65] "reverse_linking_to"      "reverse_suggests"       
+#> [67] "reverse_enhances"        "deadline"               
+#> [69] "doi"                     "ind_gallery"
+cran_gg_w_ggplot2_depends_or_imports$package |> sort()
+#>   [1] "autoplotly"          "calendR"             "ComplexUpset"       
+#>   [4] "cowplot"             "deeptime"            "egg"                
+#>   [7] "esquisse"            "geofacet"            "geomtextpath"       
+#>  [10] "gg.gap"              "gg1d"                "ggalign"            
+#>  [13] "ggaligner"           "ggalignment"         "ggallin"            
+#>  [16] "ggalluvial"          "GGally"              "ggalt"              
+#>  [19] "gganimate"           "ggarchery"           "ggarrow"            
+#>  [22] "ggautomap"           "ggbeeswarm"          "ggbiplot"           
+#>  [25] "ggblanket"           "ggblend"             "ggborderline"       
+#>  [28] "ggbrace"             "ggbrain"             "ggbreak"            
+#>  [31] "ggbrick"             "ggBubbles"           "ggbuildr"           
+#>  [34] "ggbump"              "ggchangepoint"       "ggcharts"           
+#>  [37] "ggChernoff"          "ggcleveland"         "ggcompare"          
+#>  [40] "ggcorrplot"          "ggcorset"            "ggdag"              
+#>  [43] "ggdark"              "ggdaynight"          "ggdemetra"          
+#>  [46] "ggdendro"            "ggdensity"           "ggdist"             
+#>  [49] "ggdmc"               "ggDoE"               "ggDoubleHeat"       
+#>  [52] "ggeasy"              "GGEBiplots"          "ggedit"             
+#>  [55] "ggenealogy"          "ggESDA"              "ggetho"             
+#>  [58] "ggExtra"             "ggfacto"             "ggfields"           
+#>  [61] "ggfigdone"           "ggFishPlots"         "ggfittext"          
+#>  [64] "ggfixest"            "ggflowchart"         "ggfocus"            
+#>  [67] "ggfootball"          "ggforce"             "ggformula"          
+#>  [70] "ggfortify"           "ggfoundry"           "ggfun"              
+#>  [73] "ggfx"                "gggap"               "gggenes"            
+#>  [76] "gggenomes"           "ggghost"             "gggibbous"          
+#>  [79] "gggrid"              "ggh4x"               "gghalfnorm"         
+#>  [82] "gghalves"            "gghdx"               "ggheatmap"          
+#>  [85] "gghighlight"         "gghilbertstrings"    "gghist"             
+#>  [88] "ggHoriPlot"          "gghourglass"         "ggimage"            
+#>  [91] "ggimg"               "gginference"         "gginnards"          
+#>  [94] "ggip"                "ggiraph"             "ggiraphExtra"       
+#>  [97] "ggisotonic"          "gglgbtq"             "gglm"               
+#> [100] "gglogger"            "gglorenz"            "ggmap"              
+#> [103] "ggmapcn"             "ggmapinset"          "ggmatplot"          
+#> [106] "ggmcmc"              "ggmice"              "GGMncv"             
+#> [109] "GGMnonreg"           "ggmosaic"            "ggmugs"             
+#> [112] "ggmuller"            "ggmulti"             "ggnetwork"          
+#> [115] "ggnewscale"          "ggnormalviolin"      "ggnuplot"           
+#> [118] "ggOceanMaps"         "ggokabeito"          "ggordiplots"        
+#> [121] "GGoutlieR"           "ggpackets"           "ggpage"             
+#> [124] "ggparallel"          "ggparty"             "ggpath"             
+#> [127] "ggpattern"           "ggpca"               "ggpcp"              
+#> [130] "ggperiodic"          "ggpicrust2"          "ggpie"              
+#> [133] "ggplate"             "ggplot.multistats"   "ggplot2.utils"      
+#> [136] "ggplotAssist"        "ggplotgui"           "ggplotify"          
+#> [139] "ggpmisc"             "ggPMX"               "ggpointdensity"     
+#> [142] "ggpointless"         "ggpol"               "ggpolar"            
+#> [145] "ggpolypath"          "ggpp"                "ggprism"            
+#> [148] "ggpubr"              "ggpval"              "ggQC"               
+#> [151] "ggQQunif"            "ggquickeda"          "ggquiver"           
+#> [154] "ggragged"            "ggrain"              "ggRandomForests"    
+#> [157] "ggraph"              "ggraptR"             "ggrasp"             
+#> [160] "ggrastr"             "ggrcs"               "ggredist"           
+#> [163] "ggrepel"             "ggResidpanel"        "ggreveal"           
+#> [166] "ggridges"            "ggrisk"              "ggrounded"          
+#> [169] "ggRtsy"              "ggsankeyfier"        "ggScatRidges"       
+#> [172] "ggsci"               "ggscidca"            "ggseas"             
+#> [175] "ggsector"            "ggseg"               "ggsegmentedtotalbar"
+#> [178] "ggsem"               "ggseqlogo"           "ggseqplot"          
+#> [181] "ggshadow"            "ggside"              "ggsignif"           
+#> [184] "ggsmc"               "ggsoccer"            "ggsolvencyii"       
+#> [187] "ggsom"               "ggspark"             "ggspatial"          
+#> [190] "ggspectra"           "ggstackplot"         "ggstance"           
+#> [193] "ggstar"              "ggstats"             "ggstatsplot"        
+#> [196] "ggstream"            "ggstudent"           "ggsurveillance"     
+#> [199] "ggsurvey"            "ggsurvfit"           "ggswissmaps"        
+#> [202] "ggtangle"            "ggtaxplot"           "ggtea"              
+#> [205] "ggtern"              "ggtext"              "ggThemeAssist"      
+#> [208] "ggthemes"            "ggthemeUL"           "ggtibble"           
+#> [211] "ggtikz"              "ggTimeSeries"        "ggtrace"            
+#> [214] "ggtrendline"         "ggtricks"            "ggupset"            
+#> [217] "ggvenn"              "ggVennDiagram"       "ggvfields"          
+#> [220] "ggview"              "ggvolcano"           "ggwordcloud"        
+#> [223] "ggx"                 "granovaGG"           "hrbrthemes"         
+#> [226] "ichimoku"            "legendry"            "lemon"              
+#> [229] "lindia"              "nflplotR"            "patchwork"          
+#> [232] "plotROC"             "qqplotr"             "rphylopic"          
+#> [235] "see"                 "sugrrants"           "survminer"          
+#> [238] "tablesgg"            "tidyplots"           "tidyterra"          
+#> [241] "treemapify"          "tvthemes"            "xmrr"
+
+usethis::use_data(cran_gg_w_ggplot2_depends_or_imports, overwrite = T)
+```
+
+``` r
+# devtools::check()
+# devtools::install(".", upgrade = "never")
+```
+
+``` r
+knitr::opts_chunk$set(eval= F)
 ```
 
 # 3. `gh::gh` Keep in mind in terms: github contributors
@@ -231,7 +292,7 @@ Code/ideas: Carl Suster @arcresu
 <https://github.com/ggplot2-extenders/ggplot-extension-club/discussions/82#discussioncomment-12469510>
 
 ``` r
-gh_contributors <- function(repo) {
+gh_contributors <- function(repo = "cidm-ph/ggmapinset") {
   resp <- gh::gh("GET /repos/{repo}/contributors", repo = repo)
   total_contributions <- sum(sapply(resp, \(x) x$contributions))
   resp <- Filter(\(x) x$type == "User", resp) # exclude bots
@@ -240,9 +301,9 @@ gh_contributors <- function(repo) {
 }
 
 gh_contributors("cidm-ph/ggmapinset")
-#> [1] "arcresu"
 gh_contributors("YuLab-SMU/ggfun")
-#> [1] "GuangchuangYu" "xiangpin"
+gh_contributors("tidyverse/ggplot2")
+gh_contributors("AllanCameron/geomtextpath")
 ```
 
 # 4. `universe::global_search` with exported function pattern identification
@@ -336,7 +397,10 @@ data <- data.table::fread(file) |>
         .default = ""
     ))
 
-write.csv(gg_pkgs_data.df, file = "gg-pkgs-data.csv")
+
+universe_gg_depends_function_exports <- readr::read_csv("universe_ggplot2_depends_function_exports.csv")
+
+usethis::use_data()
 ```
 
 # 5. `pkgdiff` to look at patterns also?
