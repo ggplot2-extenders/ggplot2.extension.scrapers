@@ -128,6 +128,8 @@ cran_gg_w_ggplot2_depends_or_imports |>
   filter(!(author |> str_detect("orcid"))) ->
 package_authors_edge_list
 
+library(ggraph)
+
 package_authors_edge_list |>
   tidygraph::as_tbl_graph() |>
   ggraph(layout = "kk") +
@@ -155,6 +157,37 @@ package_authors_edge_list |>
     
 ```
 
+```{r, fig.width=15, fig.height=15, eval = F, include=F}
+library(ggiraph)
+library(tidygraph)
+
+diagram <-
+  package_authors_edge_list |>
+  mutate(num_authorships = n(), .by = author) |>
+  filter(num_authorships >= 4) |>
+  as_tbl_graph() |>
+  create_layout(layout = "igraph", algorithm = "kk")
+
+edges <-
+  ggraph::collect_edges(diagram) |>
+  left_join(
+    diagram |> select(from = ".ggraph.index", x, y),
+    "from"
+  ) |>
+  left_join(
+    diagram |> select(to = ".ggraph.index", xend = "x", yend = "y"),
+    "to"
+  )
+
+ggdiagr <-
+  ggplot() +
+  geom_segment(aes(x = x, y = y, xend = xend, yend = yend), data = edges) +
+  geom_label_interactive(aes(x = x, y = y, label = name, tooltip = name), data = diagram) +
+  theme_light() +
+  labs(x = NULL, y = NULL) +
+  theme(axis.text = element_blank())
+girafe(ggobj = ggdiagr)
+```
 
 # 3. `gh::gh` Keep in mind in terms: github contributors
 
