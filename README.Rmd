@@ -137,15 +137,22 @@ package_authors_edge_list |>
 library(ggram)
 
 package_authors_edge_list |>
+  # ungroup() |> 
   mutate(num_authorships = n(), .by = author) |>
-  filter(num_authorships > 1) |>
+  filter(num_authorships >= 4) |>
   tidygraph::as_tbl_graph() |>
   ggraph(layout = "fr") +
-  geom_node_label(aes(label = name, 
-                  color = name %in% package_authors$author)) + 
   geom_edge_link(alpha = .2) + 
-  theme(legend.position)
-  
+  geom_node_label(aes(label = name, 
+                      fill = name %in% c("Hadley Wickham", "Jonathan Sidi", 
+                                          "Jonathan Carroll", "Teun van den Brand", "Claus O. Wilke",
+                                          "David Sjoberg", "Malcolm Barrett", "Di Cook", 
+                                         "Elio Campitelli", "Joseph Larmarange",
+                                         "David Kahle", "Winston Chang", "Thomas Lin Pedersen", "Matthew Kay"),
+                  color = name %in% package_authors_edge_list$author)) + 
+  theme(legend.position = "none") + 
+  scale_fill_manual(values = c("grey90", "white"))
+    
 ```
 
 
